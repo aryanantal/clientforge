@@ -12,10 +12,12 @@
     "start:backend": "npm --prefix apps/backend run start"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "concurrently": "^9.2.1"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
-    "lucide-react": "^0.577.0"
+    "lucide-react": "^0.577.0",
+    "nodemailer": "^8.0.3"
   }
 }

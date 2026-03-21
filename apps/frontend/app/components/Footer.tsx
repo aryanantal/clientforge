@@ -58,7 +58,7 @@ return (
   if (!Icon) return null; // ✅ prevent crash
 
   return (
-    <a key={item.label} href={item.href}>
+    <a key={item.label} href={item.href} className="w-14 h-14 border-2 border-background flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
       <Icon size={24} />
     </a>
   );

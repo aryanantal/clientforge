@@ -1,22 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
-import { motion } from "framer-motion";
+import { Send, CheckCircle2, XCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { API } from "@/../shared/constants/api";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    budget: "",
     message: "",
   });
+  const [toast, setToast] = useState<{
+    show: boolean;
+    message: string;
+    type: "success" | "error";
+  }>({ show: false, message: "", type: "success" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const showToast = (message: string, type: "success" | "error") => {
+    setToast({ show: true, message, type });
+    setTimeout(() => setToast({ ...toast, show: false }), 2000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thanks for reaching out! I'll get back to you within 24 hours.");
-    setFormData({ name: "", email: "", company: "", budget: "", message: "" });
+
+    try {
+      const res = await fetch(`${API.BASE_URL}${API.CONTACT}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        showToast("Message sent successfully!", "success");
+        setFormData({ name: "", email: "", company: "", message: "" });
+      }
+    } catch (error) {
+      console.error(error);
+      showToast("Something went wrong", "error");
+    }
   };
 
   const handleChange = (
@@ -92,25 +120,6 @@ export default function ContactForm() {
 
                 <div>
                   <label className="block text-sm font-bold uppercase tracking-wider mb-3">
-                    Project Budget
-                  </label>
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-6 py-4 bg-white border-2 border-foreground focus:border-primary focus:outline-none text-lg font-bold transition-colors"
-                  >
-                    <option value="">Select a range</option>
-                    <option value="5k-10k">$5,000 - $10,000</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k+">$50,000+</option>
-                    <option value="not-sure">Not Sure Yet</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold uppercase tracking-wider mb-3">
                     Project Details *
                   </label>
                   <textarea
@@ -133,6 +142,30 @@ export default function ContactForm() {
                 </button>
               </form>
             </motion.div>
+
+            {/* Toast Notification */}
+            <AnimatePresence>
+              {toast.show && (
+                <motion.div
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className={`fixed bottom-8 right-8 px-8 py-4 rounded-lg shadow-2xl font-bold text-lg z-50 flex items-center gap-3 ${
+                    toast.type === "success"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-destructive text-destructive-foreground"
+                  }`}
+                >
+                  {toast.type === "success" ? (
+                    <CheckCircle2 className="w-6 h-6" />
+                  ) : (
+                    <XCircle className="w-6 h-6" />
+                  )}
+                  {toast.message}
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Right - Info Blocks */}
             <motion.div

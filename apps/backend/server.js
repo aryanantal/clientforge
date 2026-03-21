@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import projectRoutes from "./routes/projectRoutes.js";
+import contactModule from "./modules/contact/contact.module.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/projects", projectRoutes);
+app.use("/api/contact", contactModule);
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {
