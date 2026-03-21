@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ContactHero() {
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-36 md:pb-24 relative overflow-hidden">
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 bg-primary opacity-10 blur-3xl"
         animate={{ scale: [1, 1.3, 1] }}

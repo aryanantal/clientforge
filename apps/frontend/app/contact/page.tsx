@@ -6,7 +6,7 @@ import ContactMethods from "../modules/contact/contactMethods";
 
 export default function Page() {
   return (
-    <div className="w-full pt-24 bg-background">
+    <div className="w-full bg-background">
       <ContactHero />
       <ContactMethods />
 

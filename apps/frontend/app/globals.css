@@ -123,11 +123,12 @@
 
 @layer base {
 * {
-  @apply border-border outline-ring/50;
+@apply border-border outline-ring/50;
 }
 
 body {
-  @apply bg-background text-foreground;
+@apply bg-background text-foreground;
+word-break: break-all;
 }
 
 /**
@@ -136,84 +137,84 @@ body {
 */
 
 html {
-  font-size: var(--font-size);
+font-size: var(--font-size);
 }
 
 h1 {
-  font-size: var(--text-2xl);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-2xl);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 h2 {
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-xl);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 h3 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-lg);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 h4 {
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-base);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 label {
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-base);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 button {
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+font-size: var(--text-base);
+font-weight: var(--font-weight-medium);
+line-height: 1.5;
 }
 
 input {
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.5;
+font-size: var(--text-base);
+font-weight: var(--font-weight-normal);
+line-height: 1.5;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+width: 12px;
+height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+background: var(--muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 0;
+background: var(--primary);
+border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+background: var(--secondary);
 }
 
 /* Hide scrollbar for horizontal scroll sections */
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+-ms-overflow-style: none;
+scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+display: none;
 }
 
 /* Smooth horizontal scroll */
 .horizontal-scroll {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
 }
 }
 

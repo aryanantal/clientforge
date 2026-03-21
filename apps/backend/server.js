@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import contactModule from "./modules/contact/contact.module.js";
+import authModule from "./modules/auth/auth.module.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactModule);
+app.use("/api/auth", authModule);
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {

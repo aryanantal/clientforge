@@ -5,8 +5,6 @@ export const HEADER_LINKS = [
   { name: "Work", href: ROUTES.WORK },
   { name: "About", href: ROUTES.ABOUT },
   { name: "Services", href: ROUTES.SERVICES },
-  { name: "Blog", href: ROUTES.BLOG },
-  { name: "Testimonials", href: ROUTES.TESTIMONIALS },
   { name: "Contact", href: ROUTES.CONTACT },
 ];
 
