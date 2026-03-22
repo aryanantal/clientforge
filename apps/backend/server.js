@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
-import projectRoutes from "./routes/projectRoutes.js";
 import contactModule from "./modules/contact/contact.module.js";
 import authModule from "./modules/auth/auth.module.js";
+import projectModule from "./modules/project/project.module.js";
 
 dotenv.config();
 
@@ -15,7 +15,8 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/projects", projectRoutes);
+app.use("/uploads", express.static("uploads"));
+app.use("/api/projects", projectModule);
 app.use("/api/contact", contactModule);
 app.use("/api/auth", authModule);
 

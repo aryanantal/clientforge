@@ -2,7 +2,7 @@ import { ROUTES } from "./routes";
 
 export const HEADER_LINKS = [
   { name: "Home", href: ROUTES.HOME },
-  { name: "Work", href: ROUTES.WORK },
+  { name: "Projects", href: ROUTES.PROJECTS },
   { name: "About", href: ROUTES.ABOUT },
   { name: "Services", href: ROUTES.SERVICES },
   { name: "Contact", href: ROUTES.CONTACT },
