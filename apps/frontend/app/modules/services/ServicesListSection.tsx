@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Code2, Rocket, Zap, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { ROUTES } from "../../../../shared/constants";
 
 export default function ServicesListSection() {
 const services = [
@@ -125,7 +126,7 @@ const services = [
                       {/* CTA */}
                       <div className="pt-8 border-t-2 border-current">
                         <Link
-                          href="/contact"
+                          href={`${ROUTES.CONTACT}`}
                           className={`group px-8 py-4 font-black text-lg inline-flex items-center gap-3 transition-all ${
                             service.color.includes("text-background")
                               ? "bg-background text-foreground hover:bg-primary hover:text-background"

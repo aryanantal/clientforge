@@ -5,6 +5,7 @@ import { connectDB } from "./config/db.js";
 import contactModule from "./modules/contact/contact.module.js";
 import authModule from "./modules/auth/auth.module.js";
 import projectModule from "./modules/project/project.module.js";
+import statsModule from "./modules/stats/stats.module.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/projects", projectModule);
 app.use("/api/contact", contactModule);
 app.use("/api/auth", authModule);
+app.use("/api/stats", statsModule);
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {

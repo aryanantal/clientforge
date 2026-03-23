@@ -2,6 +2,7 @@ export const API = {
   BASE_URL: process.env.NEXT_PUBLIC_API_URL,
   PROJECTS: "/api/projects",
   CONTACT: "/api/contact",
+  STATS: "/api/stats",
   AUTH: {
     LOGIN: "/api/auth/login",
     REGISTER: "/api/auth/register",

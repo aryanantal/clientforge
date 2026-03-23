@@ -8,6 +8,7 @@ import {
   MessageSquare,
   FolderOpen,
   ArrowRight,
+  BarChart3,
 } from "lucide-react";
 import { API } from "@/../shared/constants/api";
 
@@ -181,6 +182,18 @@ export default function AdminDashboard() {
               </p>
               <span className="text-primary font-bold flex items-center gap-2">
                 Go to Contacts
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </Link>
+          <Link href="/admin/stats">
+            <div className="p-8 bg-white border-2 border-foreground hover:border-primary transition-all cursor-pointer group">
+              <h3 className="text-2xl font-black mb-3">Manage Stats</h3>
+              <p className="text-muted-foreground mb-4">
+                Add, edit, or delete statistics displayed on homepage and about page
+              </p>
+              <span className="text-primary font-bold flex items-center gap-2">
+                Go to Stats
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>
