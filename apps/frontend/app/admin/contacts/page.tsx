@@ -91,7 +91,7 @@ export default function ContactsPage() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto space-y-8">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

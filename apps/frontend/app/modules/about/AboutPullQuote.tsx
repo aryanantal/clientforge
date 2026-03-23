@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function AboutPullQuote() {
   return (
     <section className="py-24 bg-foreground text-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

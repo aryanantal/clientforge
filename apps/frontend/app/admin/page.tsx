@@ -8,8 +8,7 @@ import {
   MessageSquare,
   FolderOpen,
   ArrowRight,
-  BarChart3,
-  HelpCircle,
+  FileText,
 } from "lucide-react";
 import { API } from "@/../shared/constants/api";
 
@@ -107,7 +106,7 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div className="space-y-12">
+    <div className="container mx-auto  space-y-12">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -152,6 +151,13 @@ export default function AdminDashboard() {
             href="/admin/projects"
             delay={0.2}
           />
+          <StatCard
+            label="Resume"
+            value={1}
+            icon={FileText}
+            href="/admin/resume"
+            delay={0.3}
+          />
         </div>
       )}
 
@@ -195,6 +201,18 @@ export default function AdminDashboard() {
               </p>
               <span className="text-primary font-bold flex items-center gap-2">
                 Go to Stats
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </Link>
+          <Link href="/admin/resume">
+            <div className="p-8 bg-white border-2 border-foreground hover:border-primary transition-all cursor-pointer group">
+              <h3 className="text-2xl font-black mb-3">Manage Resume</h3>
+              <p className="text-muted-foreground mb-4">
+                Edit your profile, experience, education, skills, and certifications
+              </p>
+              <span className="text-primary font-bold flex items-center gap-2">
+                Go to Resume
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>

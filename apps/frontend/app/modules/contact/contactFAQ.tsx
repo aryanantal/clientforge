@@ -84,7 +84,7 @@ export default function ContactFAQ() {
   if (loading) {
     return (
       <section className="py-32 bg-primary text-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

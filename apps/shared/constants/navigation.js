@@ -15,12 +15,10 @@ export const FOOTER_LINKS = {
     { href: ROUTES.PROJECTS, name: "Projects" },
     { href: ROUTES.ABOUT, name: "About" },
     { href: ROUTES.SERVICES, name: "Services" },
-    { href: ROUTES.CONTACT, name: "Contact" },
   ],
   resources: [
     { href: ROUTES.RESUME, name: "Resume" },
-    { href: ROUTES.BLOG, name: "Blog" },
-    { href: ROUTES.TESTIMONIALS, name: "Testimonials" },
+    { href: ROUTES.CONTACT, name: "Contact" },
   ],
 };
 

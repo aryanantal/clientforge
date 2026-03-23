@@ -8,7 +8,7 @@ import { ROUTES } from "../../../../shared/constants";
 export default function AboutCTA() {
   return (
     <section className="py-32 bg-primary text-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

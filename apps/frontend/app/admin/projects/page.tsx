@@ -254,11 +254,6 @@ export default function ProjectsPage() {
     }));
   };
 
-  // Fetch projects
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
   const fetchProjects = async () => {
     try {
       setLoading(true);
@@ -275,6 +270,11 @@ export default function ProjectsPage() {
       setLoading(false);
     }
   };
+
+  // Fetch projects on mount
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   const handleDelete = async (projectId: string) => {
     if (!confirm("Are you sure you want to delete this project?")) {

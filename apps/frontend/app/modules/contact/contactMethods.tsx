@@ -32,7 +32,7 @@ color: "bg-accent",
 
 return (
 <section className="py-16 bg-foreground text-background">
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-6 lg:px-12">
     <div className="grid md:grid-cols-3 gap-6">
         {CONTACT_METHODS.map((item, i) => {
         const Icon = item.icon;

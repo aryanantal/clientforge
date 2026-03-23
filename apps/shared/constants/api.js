@@ -4,6 +4,7 @@ export const API = {
   CONTACT: "/api/contact",
   STATS: "/api/stats",
   FAQS: "/api/faqs",
+  RESUME: "/api/resume",
   AUTH: {
     LOGIN: "/api/auth/login",
     REGISTER: "/api/auth/register",

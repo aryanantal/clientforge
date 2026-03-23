@@ -39,7 +39,7 @@ export default function AboutSkills() {
         <section className="py-24 relative overflow-hidden">
 
     <div className="space-y-12">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
         <h2 className="text-5xl font-black mb-4">

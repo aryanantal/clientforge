@@ -11,7 +11,7 @@ export default function ContactHero() {
         transition={{ duration: 8, repeat: Infinity }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}>
           <div className="text-sm font-bold uppercase text-primary mb-6">
             [ GET IN TOUCH ]
