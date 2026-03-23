@@ -30,7 +30,10 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API.BASE_URL}${API.AUTH.LOGIN}`, {
+      const url = `${API.BASE_URL}${API.AUTH.LOGIN}`;
+      console.log("Attempting login to:", url); // Debug log
+
+      const res = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,6 +42,8 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
+
+      console.log("Login response:", data); // Debug log
 
       if (data.success) {
         // Save token to localStorage
@@ -54,9 +59,10 @@ export default function LoginPage() {
       } else {
         showToast(data.message || "Login failed", "error");
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(error);
-      showToast("Something went wrong", "error");
+      const errorMessage = error instanceof Error ? error.message : "Something went wrong";
+      showToast(errorMessage, "error");
     } finally {
       setLoading(false);
     }
