@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const numbersData = [
-  { number: "50+", label: "Projects Shipped" },
-  { number: "3+", label: "Years Experience" },
-  { number: "95%", label: "Client Satisfaction" },
-  { number: "2.5x", label: "Avg. ROI Increase" },
+            { label: "PageSpeed Score", value: "96/100" },
+            { label: "Increase in Session Duration", value: "20%" },
+            { label: "Query Optimization", value: "100ms" },
+            { label: "Websites Delivered", value: "30+" },
 ];
 
 export default function AboutNumbers() {
@@ -33,7 +33,7 @@ export default function AboutNumbers() {
             transition={{ delay: index * 0.1 }}
             className="text-center"
           >
-            <div className="text-5xl md:text-6xl font-black text-primary mb-2">{stat.number}</div>
+            <div className="text-5xl md:text-6xl font-black text-primary mb-2">{stat.value}</div>
             <div className="text-sm font-bold uppercase tracking-wider">{stat.label}</div>
           </motion.div>
         ))}

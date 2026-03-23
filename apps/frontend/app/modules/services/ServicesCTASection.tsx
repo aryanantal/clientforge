@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { ROUTES } from "../../../../shared/constants";
 
 export default function ServicesCTASection() {
   return (
@@ -27,7 +28,7 @@ export default function ServicesCTASection() {
           </h2>
 
           <Link
-            href="/contact"
+            href={`${ROUTES.CONTACT}`}
             className="group inline-flex items-center gap-3 px-12 py-6 bg-background text-foreground font-black text-xl hover:bg-secondary hover:text-foreground transition-all"
           >
             BOOK A CALL

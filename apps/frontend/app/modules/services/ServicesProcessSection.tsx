@@ -3,28 +3,28 @@
 import { motion } from "framer-motion";
 
 export default function ServicesProcessSection() {
-  const phases = [
-    {
-      step: "01",
-      title: "Discovery",
-      description: "Understand your business, goals, and challenges",
-    },
-    {
-      step: "02",
-      title: "Strategy",
-      description: "Create a technical roadmap aligned with business outcomes",
-    },
-    {
-      step: "03",
-      title: "Build",
-      description: "Rapid development with weekly progress updates",
-    },
-    {
-      step: "04",
-      title: "Launch & Optimize",
-      description: "Deploy, monitor, and continuously improve",
-    },
-  ];
+const phases = [
+  {
+    step: "01",
+    title: "Audit & Discovery",
+    description: "We dive deep into your current metrics, bottlenecks, and business goals to find the highest leverage opportunities.",
+  },
+  {
+    step: "02",
+    title: "Technical Roadmap",
+    description: "I design a strategy focused on ROI, selecting the right architecture (Next.js/HubSpot) for your specific scale.",
+  },
+  {
+    step: "03",
+    title: "Agile Execution",
+    description: "Rapid, transparent development with weekly sprints and a private staging environment for constant feedback.",
+  },
+  {
+    step: "04",
+    title: "Optimization",
+    description: "Launch is just the beginning. We monitor Core Web Vitals and conversion data to ensure the product performs.",
+  },
+];
 
   return (
     <section className="py-32 bg-foreground text-background">

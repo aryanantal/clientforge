@@ -15,7 +15,7 @@ export default function ProcessSection() {
     {
       number: "02",
       title: "Build Fast + Scalable",
-      description: "Modern tech stack, clean code, performance-first approach. Built to grow with you.",
+      description: "Modern Next.js and MERN architectures built for speed, clean code, performance-first approach.",
       icon: Rocket,
     },
     {

@@ -184,7 +184,7 @@ export default function ContactForm() {
                 </div>
                 <h3 className="text-3xl font-black mb-4">Currently Booking</h3>
                 <p className="text-lg font-bold mb-6">
-                  Taking on 2-3 new projects for Q2 2026. Limited spots available.
+                  Now booking high-impact projects for 2026.
                 </p>
                 <div className="text-sm font-bold uppercase tracking-wider">
                   RESPONSE TIME: 24 HOURS
@@ -196,11 +196,12 @@ export default function ContactForm() {
                 <h3 className="text-3xl font-black mb-6">WHY WORK TOGETHER?</h3>
                 <ul className="space-y-4">
                   {[
-                    "Business-first approach",
-                    "Fast turnaround times",
-                    "Clear communication",
-                    "Results-driven work",
-                    "Ongoing support",
+"Next.js & HubSpot Specialist",
+  "ROI-focused architecture",
+  "95+ Google Lighthouse scores",
+  "Founder-level business insight",
+  "Transparent, agile workflow",
+  "Post-launch scale support",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-primary mt-2 flex-shrink-0"></div>
@@ -215,10 +216,10 @@ export default function ContactForm() {
                 <h3 className="text-3xl font-black mb-6">WHAT HAPPENS NEXT?</h3>
                 <div className="space-y-6">
                   {[
-                    { step: "01", text: "I review your message" },
-                    { step: "02", text: "We schedule a call" },
-                    { step: "03", text: "I send a proposal" },
-                    { step: "04", text: "We start building" },
+                    { step: "01", text: "Project Review (24h)" },
+                    { step: "02", text: "Discovery & Strategy Call" },
+                    { step: "03", text: "Technical Architecture Proposal" },
+                    { step: "04", text: "Development & Scaling" },
                   ].map((phase) => (
                     <div key={phase.step} className="flex items-start gap-4">
                       <div className="text-4xl font-black opacity-50">{phase.step}</div>

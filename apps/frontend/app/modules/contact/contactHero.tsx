@@ -23,8 +23,10 @@ export default function ContactHero() {
             BUSINESS
           </h1>
 
-          <p className="text-2xl text-muted-foreground">
-            Got a project? A question? An idea? Let&apos;s talk.
+          <p className="text-2xl text-muted-foreground max-w-2xl">
+            Ready to turn your digital presence into a high-performance 
+            revenue machine? Let&apos;s discuss your goals and build something 
+            that actually moves the needle.
           </p>
         </motion.div>
       </div>

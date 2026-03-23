@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Rocket, TrendingUp, Zap } from "lucide-react";
 import Link from "next/dist/client/link";
+import { ROUTES } from "../../../../shared/constants/routes";
 
 export default function ServicesSection() {
 return (
@@ -29,7 +30,7 @@ return (
                 icon: Code2,
                 title: "Full Stack Development",
                 description: "React, Next.js, TypeScript. Modern tech that actually scales.",
-                metrics: ["50+ Projects", "99.9% Uptime", "Lightning Fast"],
+                metrics: ["Next.js", "Node.js", "MongoDB", "TypeScript"],
               },
               {
                 icon: Rocket,
@@ -92,7 +93,7 @@ return (
             className="mt-16 text-center"
           >
             <Link
-              href="/services"
+              href={`${ROUTES.SERVICES}`}
               className="inline-flex items-center gap-3 px-10 py-5 bg-foreground text-background font-black text-lg hover:bg-primary transition-all"
             >
               VIEW ALL SERVICES

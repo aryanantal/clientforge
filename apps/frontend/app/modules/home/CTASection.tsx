@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/dist/client/link";
+import { ROUTES } from "../../../../shared/constants";
 
 export default function CTASection() {
 return (
@@ -30,14 +31,14 @@ return (
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
-                href="/contact"
+                href={`${ROUTES.CONTACT}`}
                 className="inline-flex items-center justify-center gap-3 px-12 py-6 bg-background text-foreground font-black text-xl hover:bg-secondary hover:text-foreground transition-all"
               >
                 START A PROJECT
                 <ArrowRight className="w-6 h-6" />
               </Link>
               <Link
-                href="/projects"
+                href={`${ROUTES.PROJECTS}`}
                 className="inline-flex items-center justify-center gap-3 px-12 py-6 border-4 border-background font-black text-xl hover:bg-background hover:text-foreground transition-all"
               >
                 SEE MORE PROOF

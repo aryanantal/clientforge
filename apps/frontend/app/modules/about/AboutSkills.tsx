@@ -7,25 +7,29 @@ const skillsData = [
   {
     icon: <Code2 className="w-12 h-12" />,
     title: "Frontend Mastery",
-    skills: ["React & Next.js", "TypeScript", "Tailwind CSS", "Motion/Framer", "Performance Optimization"],
-    color: "bg-primary",
+    // Adding SSR/ISR and specific Next.js features
+    skills: ["Next.js (App Router/SSR)", "React & TypeScript", "Tailwind CSS & SCSS", "Framer Motion", "Core Web Vitals Audit"],
+    color: "bg-primary text-background",
   },
   {
     icon: <Rocket className="w-12 h-12" />,
     title: "Backend & APIs",
-    skills: ["Node.js & Express", "REST & GraphQL", "Database Design", "Authentication", "Third-party Integrations"],
+    // Mentioning the specific MERN stack and secure auth
+    skills: ["Node.js & Express", "MongoDB & Mongoose", "RESTful APIs & JWT", "Server-Side Rendering", "Payment Gateways (Stripe)"],
     color: "bg-secondary text-foreground",
   },
   {
     icon: <Zap className="w-12 h-12" />,
     title: "HubSpot Specialist",
-    skills: ["HubSpot CMS Development", "Custom Themes & Modules", "Marketing Automation", "CRM Integration", "Migration Services"],
+    // Mentioning HubL and Custom Modules—the high-value stuff
+    skills: ["HubL & Custom Modules", "Design-to-HubSpot CMS", "Advanced Theme Architecture", "CRM & API Integration", "Lead Gen Optimization"],
     color: "bg-accent",
   },
   {
     icon: <Coffee className="w-12 h-12" />,
     title: "Business Skills",
-    skills: ["Conversion Optimization", "SEO & Web Performance", "Client Communication", "Project Management", "Strategic Consulting"],
+    // Aligning with your "Revenue Engineer" branding
+    skills: ["Conversion Rate Opt. (CRO)", "Technical SEO Strategy", "Strategic Consulting", "Project Management", "Agile Development"],
     color: "bg-foreground text-background",
   },
 ];

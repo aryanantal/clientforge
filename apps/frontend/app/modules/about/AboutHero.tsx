@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ImageWithFallback } from "@/app/components/ImageWithFallback";
+import Image from "next/image";
 
 export default function AboutHero() {
   return (
@@ -24,23 +24,26 @@ export default function AboutHero() {
               [ ABOUT ME ]
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9]">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9]">
                 I&apos;M NOT
-              <span className="text-primary">JUST A</span>
-              <br />
-              DEVELOPER
-            </h1>
+                <br />
+                <span className="text-primary">JUST A</span>
+                <br />
+                DEVELOPER
+              </h1>
 
-            <div className="space-y-6 text-xl md:text-2xl leading-relaxed max-w-2xl">
-              <p className="text-foreground font-bold">
-                I&apos;m a revenue engineer. A business-first developer. A consultant who codes.
-              </p>
-              <p className="text-muted-foreground">
-                For the past 3+ years, I&apos;ve been helping startups and businesses turn their
-                digital presence into profit machines. Not just pretty websites — actual
-                revenue-generating platforms.
-              </p>
-            </div>
+              <div className="space-y-6 text-xl md:text-2xl leading-relaxed max-w-2xl">
+                <p className="text-foreground font-bold">
+                  I&apos;m a revenue engineer. A business-first developer. A consultant who codes.
+                </p>
+                <p className="text-muted-foreground">
+                  With 3+ years of experience, I bridge the gap between complex 
+                  <span className="text-foreground font-medium"> Next.js architectures</span> and high-converting 
+                  <span className="text-foreground font-medium"> HubSpot solutions</span>. 
+                  I don’t just build pretty websites—I engineer high-performance platforms that drive 
+                  actual growth.
+                </p>
+              </div>
           </motion.div>
 
           <motion.div
@@ -50,11 +53,13 @@ export default function AboutHero() {
             className="lg:col-span-5 relative"
           >
             <div className="relative">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBjb2Rpbmd8ZW58MXx8fHwxNzczOTU0NzE4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="About Arjun"
-                className="w-full"
-              />
+              <Image
+                src="/About.jpg"
+                alt="About Aryan Antal"
+                width={500}
+                height={500}
+                className="w-full  transition-all duration-500 shadow-2xl"
+              />           
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent z-10"></div>
               <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary"></div>
             </div>

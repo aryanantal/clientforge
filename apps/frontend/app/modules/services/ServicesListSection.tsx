@@ -5,69 +5,68 @@ import { Code2, Rocket, Zap, TrendingUp, ArrowRight, CheckCircle2 } from "lucide
 import { motion } from "framer-motion";
 
 export default function ServicesListSection() {
-  const services = [
-    {
-      icon: <Code2 className="w-16 h-16" />,
-      title: "Full Stack Development",
-      tagline: "From concept to deployment",
-      description:
-        "Modern web applications built with React, Next.js, and TypeScript. Scalable, performant, and built for growth.",
-      deliverables: [
-        "Custom web applications",
-        "Responsive UI/UX implementation",
-        "API design & integration",
-        "Performance optimization",
-        "Deployment & DevOps",
-      ],
-      color: "bg-primary  text-background",
-    },
-    {
-      icon: <Rocket className="w-16 h-16" />,
-      title: "HubSpot CMS Development",
-      tagline: "Marketing automation meets design",
-      description:
-        "Custom HubSpot themes, modules, and integrations that turn your CMS into a lead generation machine.",
-      deliverables: [
-        "Custom HubSpot themes",
-        "Module development",
-        "CRM integrations",
-        "Marketing automation setup",
-        "Migration from other platforms",
-      ],
-      color: "bg-secondary text-foreground",
-    },
-    {
-      icon: <TrendingUp className="w-16 h-16" />,
-      title: "Conversion Optimization",
-      tagline: "Turn visitors into customers",
-      description:
-        "Data-driven UX improvements, A/B testing, and conversion funnel optimization to maximize revenue.",
-      deliverables: [
-        "Conversion audit",
-        "UX improvements",
-        "A/B testing setup",
-        "Analytics implementation",
-        "ROI reporting",
-      ],
-      color: "bg-foreground text-background",
-    },
-    {
-      icon: <Zap className="w-16 h-16" />,
-      title: "Performance Optimization",
-      tagline: "Speed = Money",
-      description:
-        "Core Web Vitals optimization, load time reduction, and SEO improvements that directly impact your bottom line.",
-      deliverables: [
-        "Core Web Vitals audit",
-        "Performance optimization",
-        "SEO improvements",
-        "Load time reduction",
-        "Ongoing monitoring",
-      ],
-      color: "bg-accent",
-    }
-  ];
-
+const services = [
+  {
+    icon: <Code2 className="w-16 h-16" />,
+    title: "Next.js & Full Stack",
+    tagline: "High-performance architectures",
+    description:
+      "I build production-ready applications focusing on speed and scalability. Using the Next.js App Router, TypeScript, and MERN stack, I ensure your tech stack is a growth asset, not a bottleneck.",
+    deliverables: [
+      "Next.js App Router Architecture",
+      "TypeScript & Secure API Design",
+      "Dynamic Dashboard Development",
+      "Database Modeling (MongoDB/SQL)",
+      "Vercel & AWS Deployment",
+    ],
+    color: "bg-primary text-background",
+  },
+  {
+    icon: <Rocket className="w-16 h-16" />,
+    title: "HubSpot Development",
+    tagline: "The CRM-first Web Experience",
+    description:
+      "Stop using generic templates. I build custom, high-converting HubSpot themes and HubL modules that give your marketing team full control while maintaining elite performance.",
+    deliverables: [
+      "Custom HubL Theme Development",
+      "Complex Custom Modules",
+      "CRM & Operations Hub Logic",
+      "Design-to-HubSpot Migration",
+      "Advanced Marketing Automation",
+    ],
+    color: "bg-secondary text-foreground",
+  },
+  {
+    icon: <Zap className="w-16 h-16" />,
+    title: "Technical SEO & Speed",
+    tagline: "Because every 100ms costs money",
+    description:
+      "I specialize in passing Core Web Vitals. I audit and refactor existing sites to reduce TBT and LCP, directly improving your search rankings and lowering your bounce rates.",
+    deliverables: [
+      "Core Web Vitals Optimization",
+      "Render-blocking Asset Removal",
+      "Image & Font Strategy",
+      "Technical SEO Infrastructure",
+      "Ongoing Performance Monitoring",
+    ],
+    color: "bg-foreground text-background",
+  },
+  {
+    icon: <TrendingUp className="w-16 h-16" />,
+    title: "Growth Consulting",
+    tagline: "ROI-driven tech strategy",
+    description:
+      "I don't just take orders; I consult. I help founders choose the right tools and build the right funnels to ensure their digital product actually generates a return.",
+    deliverables: [
+      "Conversion Funnel Audit",
+      "Tech-Stack ROI Analysis",
+      "A/B Testing Frameworks",
+      "Analytics & Event Tracking",
+      "Product Strategy Roadmap",
+    ],
+    color: "bg-accent text-background ",
+  }
+];
   return (
     <section className="pb-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

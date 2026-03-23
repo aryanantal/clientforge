@@ -18,9 +18,10 @@ export default function ProjectHero() {
             Work That <span className="text-primary">Makes Money</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-foreground leading-relaxed max-w-3xl font-bold">
-            Real projects. Real results. Real revenue growth.
-          </p>
+<p className="text-xl md:text-2xl text-foreground leading-relaxed max-w-3xl font-bold">
+  A selection of high-performance <span className="underline decoration-primary decoration-4 underline-offset-8">HubSpot implementations</span> and  
+  <span className="underline decoration-primary decoration-4 underline-offset-8"> Next.js applications</span> built to scale revenue.
+</p>
         </motion.div>
       </div>
     </section>

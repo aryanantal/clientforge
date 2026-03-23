@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 export default function ServicesFAQSection() {
   const faqs = [
-    {
-      q: "How long does a typical project take?",
-      a: "Most projects range from 4-12 weeks depending on scope. I work in 1-week sprints with regular updates.",
-    },
-    {
-      q: "Do you work with startups?",
-      a: "Absolutely. I specialize in helping startups ship fast and scale smart. MVP development is my sweet spot.",
-    },
-    {
-      q: "What's your availability?",
-      a: "I take on 2-3 projects at a time to ensure quality. Currently booking 3-4 weeks out.",
-    },
-    {
-      q: "Do you offer ongoing support?",
-      a: "Yes. All projects include 30 days of support. I also offer monthly retainer packages for ongoing optimization.",
-    },
+            {
+            q: "What is your typical project timeline?",
+            a: "Standard website builds take 4-6 weeks. Complex Next.js applications or custom HubSpot theme developments usually span 8-12 weeks, working in agile 1-week sprints.",
+            },
+            {
+            q: "Do you only work with tech startups?",
+            a: "While I love the pace of startups, I also partner with established businesses (like agri-tech and service firms) looking to modernize their stack for better performance.",
+            },
+            {
+            q: "How do you handle pricing?",
+            a: "I provide value-based fixed pricing for defined projects. For ongoing technical consulting or HubSpot management, I offer monthly performance retainers.",
+            },
+            {
+            q: "Can you optimize my existing website?",
+            a: "Yes. I offer performance audits and 'Speed Sprints' specifically for Next.js and HubSpot sites to improve Core Web Vitals and Lighthouse scores.",
+            },
   ];
 
   return (

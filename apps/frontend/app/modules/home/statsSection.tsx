@@ -8,10 +8,10 @@ return (
     <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {[
-            { label: "Avg Conversion Increase", value: "2.3x" },
-            { label: "Avg Load Time Reduction", value: "-60%" },
-            { label: "Client Revenue Growth", value: "+180%" },
-            { label: "Projects Delivered", value: "50+" },
+            { label: "PageSpeed Score", value: "96/100" },
+            { label: "Increase in Session Duration", value: "20%" },
+            { label: "Query Optimization", value: "100ms" },
+            { label: "Websites Delivered", value: "30+" },
         ].map((stat, index) => (
             <motion.div
             key={index}
