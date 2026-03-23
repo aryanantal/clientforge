@@ -9,4 +9,6 @@ export const ROUTES = {
   CONTACT: "/contact",
   ADMIN: "/admin",
   RESUME: "/resume",
+  PRIVACY: "/privacy",
+  TERMS: "/terms",
 };

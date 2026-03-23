@@ -20,6 +20,10 @@ export const FOOTER_LINKS = {
     { href: ROUTES.RESUME, name: "Resume" },
     { href: ROUTES.CONTACT, name: "Contact" },
   ],
+  legal: [
+    { href: ROUTES.TERMS, name: "Terms" },
+    { href: ROUTES.PRIVACY, name: "Privacy" },
+  ],
 };
 
 export const SOCIAL_LINKS = [

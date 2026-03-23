@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Linkedin, Mail, ArrowUpRight, Github, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
-import { CONTACT_INFO, FOOTER_LINKS, SOCIAL_LINKS } from "@/../shared/constants";
+import { CONTACT_INFO, FOOTER_LINKS, ROUTES, SOCIAL_LINKS } from "@/../shared/constants";
 
 export default function Footer() {
 const currentYear = new Date().getFullYear();
@@ -122,12 +122,19 @@ return (
           </div>
 
           <div className="flex gap-6 text-sm">
-            <button className="hover:text-primary font-bold uppercase">
+            <Link
+              href={ROUTES.PRIVACY}
+              className="hover:text-primary font-bold uppercase"
+            >
               Privacy
-            </button>
-            <button className="hover:text-primary font-bold uppercase">
+            </Link>
+
+            <Link
+              href={ROUTES.TERMS}
+              className="hover:text-primary font-bold uppercase"
+            >
               Terms
-            </button>
+            </Link>
           </div>
         </div>
       </div>
