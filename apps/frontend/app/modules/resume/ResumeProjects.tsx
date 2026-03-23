@@ -45,7 +45,7 @@ export default function ResumeProjects({ projects }: ResumeProjectsProps) {
                     {project.tags.slice(0, 4).map((tag, i) => (
                       <span 
                         key={i} 
-                        className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded"
+                        className="text-xs bg-primary text-background px-2 py-1 rounded"
                       >
                         {tag}
                       </span>

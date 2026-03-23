@@ -56,7 +56,7 @@ export default function ResumeSkills({ skills }: ResumeSkillsProps) {
                   {items.map((skill) => (
                       <div
                       key={skill}
-                      className="bg-secondary text-secondary-foreground rounded-sm p-1 h-max border-transparent hover:bg-secondary/90"
+                      className="bg-primary text-background rounded-sm p-1 h-max border-transparent hover:bg-secondary/90"
                       >
                           {skill}
                   </div>
