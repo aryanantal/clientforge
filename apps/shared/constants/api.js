@@ -3,6 +3,7 @@ export const API = {
   PROJECTS: "/api/projects",
   CONTACT: "/api/contact",
   STATS: "/api/stats",
+  FAQS: "/api/faqs",
   AUTH: {
     LOGIN: "/api/auth/login",
     REGISTER: "/api/auth/register",

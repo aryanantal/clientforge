@@ -9,6 +9,7 @@ import {
   FolderOpen,
   ArrowRight,
   BarChart3,
+  HelpCircle,
 } from "lucide-react";
 import { API } from "@/../shared/constants/api";
 
@@ -194,6 +195,18 @@ export default function AdminDashboard() {
               </p>
               <span className="text-primary font-bold flex items-center gap-2">
                 Go to Stats
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </Link>
+          <Link href="/admin/faq">
+            <div className="p-8 bg-white border-2 border-foreground hover:border-primary transition-all cursor-pointer group">
+              <h3 className="text-2xl font-black mb-3">Manage FAQs</h3>
+              <p className="text-muted-foreground mb-4">
+                Add, edit, or delete FAQs displayed on services and contact pages
+              </p>
+              <span className="text-primary font-bold flex items-center gap-2">
+                Go to FAQs
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </div>

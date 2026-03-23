@@ -6,6 +6,7 @@ import contactModule from "./modules/contact/contact.module.js";
 import authModule from "./modules/auth/auth.module.js";
 import projectModule from "./modules/project/project.module.js";
 import statsModule from "./modules/stats/stats.module.js";
+import faqModule from "./modules/faq/faq.module.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use("/api/projects", projectModule);
 app.use("/api/contact", contactModule);
 app.use("/api/auth", authModule);
 app.use("/api/stats", statsModule);
+app.use("/api/faqs", faqModule);
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {
