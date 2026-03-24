@@ -1,5 +1,6 @@
+// API constants - using relative paths for Next.js API routes
 export const API = {
-  BASE_URL: process.env.NEXT_PUBLIC_API_URL,
+  BASE_URL: "",  // Empty for same-origin API calls
   PROJECTS: "/api/projects",
   CONTACT: "/api/contact",
   STATS: "/api/stats",
