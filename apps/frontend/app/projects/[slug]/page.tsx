@@ -44,11 +44,9 @@ export default function ProjectDetails() {
           setProject(data.data);
         } else {
           console.log('API returned success: false');
-          // router.push('/projects');
         }
       } catch (error) {
         console.error("Error fetching project:", error);
-        // router.push('/projects');
       } finally {
         setLoading(false);
       }

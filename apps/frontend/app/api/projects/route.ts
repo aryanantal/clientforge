@@ -4,7 +4,7 @@ import { connectDB } from "@/lib/db";
 import { requireAdmin } from "@/lib/middleware/auth";
 
 // GET all projects (public)
-export async function GET(request: Request) {
+export async function GET(_request: Request) {
   try {
     await connectDB();
     

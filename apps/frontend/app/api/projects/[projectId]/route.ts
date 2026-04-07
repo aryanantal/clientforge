@@ -2,46 +2,7 @@ import { NextResponse } from "next/server";
 import Project from "@/lib/models/Project";
 import { connectDB } from "@/lib/db";
 import { requireAdmin } from "@/lib/middleware/auth";
-
-// GET single project by ID or slug
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ projectId: string }> }
-) {
-  try {
-    await connectDB();
-    
-    const { projectId } = await params;
-
-    // First try to find by slug
-    let project = await Project.findOne({ slug: projectId });
-
-    if (!project) {
-      // If not found by slug, try by id
-      const numericId = Number(projectId);
-      project = await Project.findOne({ id: numericId });
-    }
-
-    if (!project) {
-      return NextResponse.json(
-        { success: false, message: "Project not found" },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      success: true,
-      data: project,
-      message: "Project retrieved successfully"
-    });
-  } catch (error) {
-    console.error("Error retrieving project:", error);
-    return NextResponse.json(
-      { success: false, message: "Failed to retrieve project" },
-      { status: 500 }
-    );
-  }
-}
+import mongoose from "mongoose";
 
 // PUT update project (admin only)
 export async function PUT(
@@ -49,7 +10,15 @@ export async function PUT(
   { params }: { params: Promise<{ projectId: string }> }
 ) {
   try {
+    console.log("Connecting to database...");
     await connectDB();
+    console.log("Database connection established");
+    
+    // Check if Project model is available
+    if (!mongoose.models.Project) {
+      console.error("Project model not found in mongoose.models");
+      throw new Error("Project model not initialized");
+    }
     
     // Check authentication and admin role
     const authResult = requireAdmin(request);
@@ -61,27 +30,90 @@ export async function PUT(
     }
 
     const { projectId } = await params;
-    const projectData = await request.json();
 
-    // Handle images - convert single image to array
-    if (projectData.image && !projectData.images) {
-      projectData.images = [projectData.image];
-    }
-    if (typeof projectData.images === 'string') {
-      projectData.images = JSON.parse(projectData.images);
+    // Parse multipart form data or JSON
+    let projectData: Record<string, unknown>;
+    const contentType = request.headers.get("content-type") || "";
+    
+    if (contentType.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      projectData = {};
+      
+      for (const [key, value] of formData.entries()) {
+        if (key === "tags" || key === "images") {
+          try {
+            projectData[key] = JSON.parse(value as string);
+          } catch {
+            projectData[key] = [];
+          }
+        } else if (key === "id") {
+          projectData[key] = Number(value);
+        } else {
+          projectData[key] = value;
+        }
+      }
+    } else {
+      projectData = await request.json();
+      
+      // Handle images - convert single image to array
+      if (projectData.image && !projectData.images) {
+        projectData.images = [projectData.image];
+      }
+      if (typeof projectData.images === "string") {
+        try {
+          projectData.images = JSON.parse(projectData.images);
+        } catch {}
+      }
+      
+      // Ensure ID is numeric
+      if (projectData.id) {
+        projectData.id = Number(projectData.id);
+      }
+      
+      // Parse tags if it's a string
+      if (typeof projectData.tags === "string") {
+        try {
+          projectData.tags = JSON.parse(projectData.tags);
+        } catch {}
+      }
     }
 
-    // Parse tags if it's a string
-    if (typeof projectData.tags === 'string') {
-      projectData.tags = JSON.parse(projectData.tags);
+    // Find and update project - try both MongoDB _id and custom id/slug
+    let project;
+    try {
+      // First try MongoDB _id
+      if (mongoose.Types.ObjectId.isValid(projectId)) {
+        project = await Project.findByIdAndUpdate(
+          projectId,
+          projectData,
+          { new: true }
+        );
+      }
+      
+      // If not found, try custom id
+      if (!project) {
+        const numericId = Number(projectId);
+        if (!Number.isNaN(numericId)) {
+          project = await Project.findOneAndUpdate(
+            { id: numericId },
+            projectData,
+            { new: true }
+          );
+        }
+      }
+      
+      // If still not found, try slug
+      if (!project) {
+        project = await Project.findOneAndUpdate(
+          { slug: projectId },
+          projectData,
+          { new: true }
+        );
+      }
+    } catch (findError) {
+      console.error("Error updating project:", findError);
+      throw findError;
     }
-
-    // Find and update project - try both id and slug
-    let project = await Project.findOneAndUpdate(
-      { $or: [{ id: Number(projectId) }, { slug: projectId }] },
-      projectData,
-      { new: true }
-    );
 
     if (!project) {
       return NextResponse.json(
@@ -110,7 +142,15 @@ export async function DELETE(
   { params }: { params: Promise<{ projectId: string }> }
 ) {
   try {
+    console.log("Connecting to database...");
     await connectDB();
+    console.log("Database connection established");
+    
+    // Check if Project model is available
+    if (!mongoose.models.Project) {
+      console.error("Project model not found in mongoose.models");
+      throw new Error("Project model not initialized");
+    }
     
     // Check authentication and admin role
     const authResult = requireAdmin(request);
@@ -123,10 +163,30 @@ export async function DELETE(
 
     const { projectId } = await params;
 
-    // Find and delete project - try both id and slug
-    const project = await Project.findOneAndDelete(
-      { $or: [{ id: Number(projectId) }, { slug: projectId }] }
-    );
+    // Find and delete project - try MongoDB _id, custom id, or slug
+    let project;
+    try {
+      // First try MongoDB _id
+      if (mongoose.Types.ObjectId.isValid(projectId)) {
+        project = await Project.findByIdAndDelete(projectId);
+      }
+      
+      // If not found, try custom id
+      if (!project) {
+        const numericId = Number(projectId);
+        if (!Number.isNaN(numericId)) {
+          project = await Project.findOneAndDelete({ id: numericId });
+        }
+      }
+      
+      // If still not found, try slug
+      if (!project) {
+        project = await Project.findOneAndDelete({ slug: projectId });
+      }
+    } catch (findError) {
+      console.error("Error deleting project:", findError);
+      throw findError;
+    }
 
     if (!project) {
       return NextResponse.json(
@@ -147,3 +207,4 @@ export async function DELETE(
     );
   }
 }
+

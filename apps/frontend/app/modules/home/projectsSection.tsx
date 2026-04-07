@@ -132,7 +132,7 @@ export default function ProjectSection() {
                   transition={{ delay: index * 0.1 }}
                   className="group bg-white border-4 border-foreground hover:shadow-2xl transition-all w-[550px] md:w-[580px] flex-shrink-0"
                 >
-                  <Link href={`/case-study/${project.slug}`}>
+                  <Link href={`/projects/${project.slug || project.id}`}>
                     <div className="aspect-[16/6] overflow-hidden bg-muted relative">
                       <ImageWithFallback
                         src={

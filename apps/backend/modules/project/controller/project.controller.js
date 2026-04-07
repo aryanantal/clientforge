@@ -135,6 +135,11 @@ export const createProject = async (req, res) => {
     });
   } catch (error) {
     console.error("Error creating project:", error);
+    console.error("Error details:", {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
     res.status(500).json({
       success: false,
       message: "Failed to create project"
@@ -187,23 +192,70 @@ export const updateProject = async (req, res) => {
 
     // Check if slug already exists for another project
     if (updateData.slug) {
-      const existingSlugProject = await Project.findOne({
-        slug: updateData.slug,
-        _id: { $ne: projectId }
-      });
-      if (existingSlugProject) {
-        return res.status(400).json({
-          success: false,
-          message: "A project with this slug already exists",
+      // First find the current project by ID to get its _id
+      let currentProject;
+      if (mongoose.Types.ObjectId.isValid(projectId)) {
+        currentProject = await Project.findById(projectId);
+      }
+      
+      // If not found by ObjectId, try by custom id or slug
+      if (!currentProject) {
+        const numericId = Number(projectId);
+        if (!Number.isNaN(numericId)) {
+          currentProject = await Project.findOne({ id: numericId });
+        }
+      }
+      if (!currentProject) {
+        currentProject = await Project.findOne({ slug: projectId });
+      }
+      
+      // Now check for duplicate slug (excluding current project)
+      if (currentProject) {
+        const existingSlugProject = await Project.findOne({
+          slug: updateData.slug,
+          _id: { $ne: currentProject._id }
         });
+        if (existingSlugProject) {
+          return res.status(400).json({
+            success: false,
+            message: "A project with this slug already exists",
+          });
+        }
       }
     }
 
-    const updatedProject = await Project.findByIdAndUpdate(
-      projectId,
-      updateData,
-      { new: true, runValidators: true }
-    );
+    // Find and update the project - try MongoDB _id, custom id, or slug
+    let updatedProject;
+    
+    // First try MongoDB _id
+    if (mongoose.Types.ObjectId.isValid(projectId)) {
+      updatedProject = await Project.findByIdAndUpdate(
+        projectId,
+        updateData,
+        { new: true, runValidators: true }
+      );
+    }
+    
+    // If not found, try custom id
+    if (!updatedProject) {
+      const numericId = Number(projectId);
+      if (!Number.isNaN(numericId)) {
+        updatedProject = await Project.findOneAndUpdate(
+          { id: numericId },
+          updateData,
+          { new: true, runValidators: true }
+        );
+      }
+    }
+    
+    // If still not found, try slug
+    if (!updatedProject) {
+      updatedProject = await Project.findOneAndUpdate(
+        { slug: projectId },
+        updateData,
+        { new: true, runValidators: true }
+      );
+    }
 
     if (!updatedProject) {
       return res.status(404).json({
@@ -219,6 +271,11 @@ export const updateProject = async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating project:", error);
+    console.error("Error details:", {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
     res.status(500).json({
       success: false,
       message: "Failed to update project"
