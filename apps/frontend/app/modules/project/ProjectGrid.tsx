@@ -50,9 +50,9 @@ export default function ProjectGrid({ projects, visibleCount, setVisibleCount }:
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4 bg-foreground text-background px-4 py-2 font-black text-2xl">
+                  {/* <div className="absolute top-4 right-4 bg-foreground text-background px-4 py-2 font-black text-2xl">
                     {project.metric}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="p-8">

@@ -1,6 +1,8 @@
 import express from "express";
 import multer from "multer";
 import path from "path";
+import cloudinary from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
 import {
   getAllProjects,
   getProjectById,
@@ -12,24 +14,24 @@ import { verifyToken, requireAdmin } from "../../middleware/auth.js";
 
 const router = express.Router();
 
-// Configure multer for image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    // Convert image name properly: sanitize and add timestamp
-    const sanitizedName = file.originalname.replace(/[^a-zA-Z0-9.]/g, "_");
-    const ext = path.extname(sanitizedName);
-    const name = path.basename(sanitizedName, ext);
-    const timestamp = Date.now();
-    cb(null, `${name}_${timestamp}${ext}`);
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "clientforge",
+    allowed_formats: ["jpg", "jpeg", "png", "gif", "webp"],
+    transformation: [{ width: 1200, height: 800, crop: "limit" }],
   },
 });
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith("image/")) {
       cb(null, true);

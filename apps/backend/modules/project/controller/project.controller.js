@@ -69,7 +69,7 @@ export const createProject = async (req, res) => {
 
     // Handle image uploads
     if (req.files && req.files.length > 0) {
-      projectData.images = req.files.map((file) => `/uploads/${file.filename}`);
+      projectData.images = req.files.map((file) => file.path);
     }
 
     // Normalize incoming images (existing compatibility)
@@ -162,7 +162,7 @@ export const updateProject = async (req, res) => {
 
     // Handle image uploads
     if (req.files && req.files.length > 0) {
-      const uploadedImages = req.files.map((file) => `/uploads/${file.filename}`);
+      const uploadedImages = req.files.map((file) => file.path);
       updateData.images = uploadedImages;
     }
 

@@ -33,7 +33,7 @@ export default function ProjectDetails() {
 
   useEffect(() => {
     const fetchProject = async () => {
-      const apiUrl = 'http://localhost:5000';
+    const apiUrl = API.BASE_URL;
       console.log('Fetching project with slug:', slug);
       console.log('API URL:', `${apiUrl}${API.PROJECTS}/${slug}`);
       try {
@@ -121,7 +121,7 @@ export default function ProjectDetails() {
                   src={
                     projectImage.startsWith("http")
                       ? projectImage
-                      : `http://localhost:5000${projectImage}`
+                      : `${API.BASE_URL}${projectImage}`
                   }
                   alt={project.title}
                   className="rounded-3xl w-full h-auto max-h-96 object-cover"
@@ -195,7 +195,7 @@ export default function ProjectDetails() {
                     src={
                       image.startsWith("http")
                         ? image
-                        : `http://localhost:5000${image}`
+                        : `${API.BASE_URL}${image}`
                     }
                     alt={`Project image ${index + 2}`}
                     className="rounded-2xl w-full h-auto max-h-80 object-cover relative"
