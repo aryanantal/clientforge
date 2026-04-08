@@ -57,6 +57,10 @@ export const getProjectById = async (req, res) => {
 
 export const createProject = async (req, res) => {
   try {
+    console.log("=== CREATE PROJECT START ===");
+    console.log("Files:", req.files);
+    console.log("Body:", req.body);
+    
     // Only admin can create projects
     if (req.user?.role !== "admin") {
       return res.status(403).json({
@@ -69,7 +73,8 @@ export const createProject = async (req, res) => {
 
     // Handle image uploads
     if (req.files && req.files.length > 0) {
-      projectData.images = req.files.map((file) => file.path);
+      projectData.images = req.files.map((file) => file.path || file.secure_url || file.url);
+      console.log("Images set:", projectData.images);
     }
 
     // Normalize incoming images (existing compatibility)
@@ -77,7 +82,20 @@ export const createProject = async (req, res) => {
       projectData.images = [projectData.image];
     }
     if (typeof projectData.images === 'string') {
-      projectData.images = JSON.parse(projectData.images);
+      try {
+        projectData.images = JSON.parse(projectData.images);
+      } catch (e) {
+        projectData.images = [projectData.images];
+      }
+    }
+
+    // Parse tags if it's a string (must be before validation)
+    if (typeof projectData.tags === 'string') {
+      try {
+        projectData.tags = JSON.parse(projectData.tags);
+      } catch (e) {
+        projectData.tags = [projectData.tags];
+      }
     }
 
     // Ensure ID is numeric
@@ -95,16 +113,12 @@ export const createProject = async (req, res) => {
     const requiredFields = ['id', 'slug', 'title', 'category', 'before', 'after', 'metric', 'problem', 'solution', 'images', 'tags'];
     for (const field of requiredFields) {
       if (projectData[field] === undefined || projectData[field] === null || projectData[field] === "") {
+        console.log(`Validation failed for field: ${field}, value:`, projectData[field]);
         return res.status(400).json({
           success: false,
           message: `${field} is required`,
         });
       }
-    }
-
-    // Parse tags if it's a string
-    if (typeof projectData.tags === 'string') {
-      projectData.tags = JSON.parse(projectData.tags);
     }
 
     // Check if project with this id already exists
@@ -162,13 +176,17 @@ export const updateProject = async (req, res) => {
 
     // Handle image uploads
     if (req.files && req.files.length > 0) {
-      const uploadedImages = req.files.map((file) => file.path);
+      const uploadedImages = req.files.map((file) => file.path || file.secure_url || file.url);
       updateData.images = uploadedImages;
     }
 
     // Keep existing images if not replaced
     if (typeof updateData.images === 'string') {
-      updateData.images = JSON.parse(updateData.images);
+      try {
+        updateData.images = JSON.parse(updateData.images);
+      } catch (e) {
+        updateData.images = [updateData.images];
+      }
     }
     if (updateData.image && !updateData.images) {
       updateData.images = [updateData.image];
@@ -176,7 +194,11 @@ export const updateProject = async (req, res) => {
 
     // Parse tags if it's a string
     if (typeof updateData.tags === 'string') {
-      updateData.tags = JSON.parse(updateData.tags);
+      try {
+        updateData.tags = JSON.parse(updateData.tags);
+      } catch (e) {
+        updateData.tags = [updateData.tags];
+      }
     }
 
     // Ensure ID remains numeric if provided
