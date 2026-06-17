@@ -17,32 +17,36 @@ const defaultFAQs: FAQItem[] = [
   {
     _id: "1",
     question: "What is your typical project timeline?",
-    answer: "Standard website builds take 4-6 weeks. Complex Next.js applications or custom HubSpot theme developments usually span 8-12 weeks, working in agile 1-week sprints.",
-    category: "services",
+    answer:
+      "Standard HubSpot theme or marketing site builds take 4–6 weeks. Enterprise migrations, multi-location sites, or complex Next.js applications typically span 8–12 weeks in agile weekly sprints.",
+    category: "general",
     order: 0,
     isActive: true,
   },
   {
     _id: "2",
-    question: "Do you only work with tech startups?",
-    answer: "While I love the pace of startups, I also partner with established businesses (like agri-tech and service firms) looking to modernize their stack for better performance.",
-    category: "services",
+    question: "Do you work on both Next.js and HubSpot CMS?",
+    answer:
+      "Yes. I build production Next.js/MERN applications (currently at EmpKhet) and deliver HubSpot CMS themes, migrations, and custom modules for enterprise and mid-market clients.",
+    category: "general",
     order: 1,
     isActive: true,
   },
   {
     _id: "3",
     question: "How do you handle pricing?",
-    answer: "I provide value-based fixed pricing for defined projects. For ongoing technical consulting or HubSpot management, I offer monthly performance retainers.",
-    category: "services",
+    answer:
+      "Fixed pricing for defined HubSpot or Next.js projects. For ongoing HubSpot support, performance tuning, or technical consulting, I offer monthly retainers scoped to your roadmap.",
+    category: "general",
     order: 2,
     isActive: true,
   },
   {
     _id: "4",
     question: "Can you optimize my existing website?",
-    answer: "Yes. I offer performance audits and 'Speed Sprints' specifically for Next.js and HubSpot sites to improve Core Web Vitals and Lighthouse scores.",
-    category: "services",
+    answer:
+      "Yes. I offer Core Web Vitals audits and performance rescue passes for Next.js and HubSpot sites — targeting 95+ Lighthouse scores and measurable LCP, CLS, and INP improvements.",
+    category: "general",
     order: 3,
     isActive: true,
   },

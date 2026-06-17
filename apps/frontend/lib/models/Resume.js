@@ -84,13 +84,15 @@ resumeSchema.statics.getResume = async function() {
   if (!resume) {
     resume = await this.create({
       profile: {
-        name: "Arjun Kumar",
-        title: "Full Stack Engineer & HubSpot Specialist",
-        summary: "Results-driven Full Stack Engineer with 3+ years of experience in building scalable web applications.",
+        name: "Aryan Antal",
+        title: "Frontend Engineer · Next.js & HubSpot CMS Developer",
+        summary: "Frontend Engineer with 3+ years of experience in Next.js and HubSpot CMS.",
         contactInfo: {
-          email: "hello@arjun.dev",
-          linkedin: "https://linkedin.com",
-          github: "https://github.com",
+          email: "aryanantal2301@gmail.com",
+          phone: "+91 88649 94444",
+          linkedin: "https://www.linkedin.com/in/aryan-antal-74310920b",
+          github: "https://github.com/aryanantal",
+          location: "Noida, Uttar Pradesh, India",
         },
       },
       experience: [],

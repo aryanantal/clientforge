@@ -25,23 +25,23 @@ export default function AboutHero() {
             </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9]">
-                I&apos;M NOT
+                FRONTEND
                 <br />
-                <span className="text-primary">JUST A</span>
+                <span className="text-primary">ENGINEER</span>
                 <br />
-                DEVELOPER
+                & HUBSPOT CMS
               </h1>
 
               <div className="space-y-6 text-xl md:text-2xl leading-relaxed max-w-2xl">
                 <p className="text-foreground font-bold">
-                  I&apos;m a revenue engineer. A business-first developer. A consultant who codes.
+                  I build production Next.js interfaces and enterprise HubSpot CMS experiences — with performance and clarity as non‑negotiables.
                 </p>
                 <p className="text-muted-foreground">
-                  With 3+ years of experience, I bridge the gap between complex 
-                  <span className="text-foreground font-medium"> Next.js architectures</span> and high-converting 
-                  <span className="text-foreground font-medium"> HubSpot solutions</span>. 
-                  I don’t just build pretty websites—I engineer high-performance platforms that drive 
-                  actual growth.
+                  With 3+ years of experience, I work across{" "}
+                  <span className="text-foreground font-medium">Next.js/MERN product engineering</span> (EmpKhet)
+                  and{" "}
+                  <span className="text-foreground font-medium">HubSpot themes, migrations, and custom modules</span>{" "}
+                  for clients in healthcare, logistics, manufacturing, and SaaS.
                 </p>
               </div>
           </motion.div>

@@ -16,11 +16,13 @@ subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-title: "Aryan Antal",
-description: "Aryan Antal - Web Development & Design",
-icons: {
-icon: "/Favicon.png",
-},
+  title: "Aryan Antal — Frontend Engineer · Next.js & HubSpot CMS",
+  description:
+    "Frontend Engineer specializing in Next.js, React, HubSpot CMS, and Core Web Vitals. Production apps and enterprise HubSpot builds.",
+  keywords: ["Aryan Antal", "Frontend Engineer", "Next.js", "HubSpot CMS", "Web Performance"],
+  icons: {
+    icon: "/Favicon.png",
+  },
 };
 
 export default function RootLayout({

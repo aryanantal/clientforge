@@ -45,7 +45,7 @@ export default function AboutSkills() {
         <h2 className="text-5xl font-black mb-4">
           SKILLS & <span className="text-secondary">EXPERTISE</span>
         </h2>
-        <p className="text-xl text-muted-foreground mb-10">The tools I use to build revenue machines</p>
+        <p className="text-xl text-muted-foreground mb-10">The stack I use for production Next.js and HubSpot CMS work</p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {skillsData.map((skill, index) => (

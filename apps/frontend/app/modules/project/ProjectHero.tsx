@@ -15,12 +15,13 @@ export default function ProjectHero() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] mb-10 text-foreground">
-            Work That <span className="text-primary">Makes Money</span>
+            Selected <span className="text-primary">Projects</span>
           </h1>
 
 <p className="text-xl md:text-2xl text-foreground leading-relaxed max-w-3xl font-bold">
-  A selection of high-performance <span className="underline decoration-primary decoration-4 underline-offset-8">HubSpot implementations</span> and  
-  <span className="underline decoration-primary decoration-4 underline-offset-8"> Next.js applications</span> built to scale revenue.
+  High-performance{" "}
+  <span className="underline decoration-primary decoration-4 underline-offset-8">HubSpot CMS builds</span> and{" "}
+  <span className="underline decoration-primary decoration-4 underline-offset-8">Next.js applications</span> — aligned with my resume and client work.
 </p>
         </motion.div>
       </div>

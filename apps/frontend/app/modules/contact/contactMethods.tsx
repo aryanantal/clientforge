@@ -16,9 +16,9 @@ color: "bg-primary",
 },
 {
 icon: Calendar,
-title: "Book a Call",
-value: "30-min consultation",
-href: `tel:${CONTACT_INFO.phone}`,
+title: "Phone",
+value: CONTACT_INFO.phone,
+href: `tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`,
 color: "bg-secondary text-foreground",
 },
 {

@@ -3,7 +3,7 @@
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, TrendingUp, Clock, Zap } from "lucide-react";
+import { ArrowLeft, ExternalLink, TrendingUp, Clock, Zap } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/ImageWithFallback";
 import { API } from "@/../shared/constants/api";
 
@@ -21,6 +21,7 @@ interface Project {
   images?: string[];
   image?: string;
   tags: string[];
+  liveUrl?: string;
 }
 
 export default function ProjectDetails() {
@@ -112,6 +113,17 @@ export default function ProjectDetails() {
                   </span>
                 ))}
               </div>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
+                >
+                  View live project
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              ) : null}
             </div>
 
             <div className="relative">
@@ -219,6 +231,17 @@ export default function ProjectDetails() {
               high-performance web solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-foreground rounded-md hover:bg-white/90 transition-colors text-lg font-medium"
+                >
+                  View live project
+                  <ExternalLink className="ml-2 w-4 h-4" />
+                </a>
+              ) : null}
               <Link href="/contact" className="inline-flex items-center px-6 py-3 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-colors text-lg font-medium">
                 Start Your Project
               </Link>

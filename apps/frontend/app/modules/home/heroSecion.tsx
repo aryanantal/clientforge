@@ -22,14 +22,14 @@ return (
           className="max-w-5xl"
         >
           <div className="inline-block mb-6 px-4 py-2.5 bg-foreground text-background font-black uppercase tracking-wider text-xs">
-            Full Stack Developer & HubSpot Specialist.
+            Frontend Engineer · Next.js & HubSpot CMS
           </div>
           
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] mb-8 text-foreground">
-              Your website shouldn&apos;t<br />
-              just <span className="text-secondary">look good</span>.<br />
-              It should <span className="relative inline-block">
-                make money
+              High-performance<br />
+              <span className="text-secondary">Next.js</span> apps &<br />
+              <span className="relative inline-block">
+                HubSpot builds
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -40,9 +40,9 @@ return (
             </h1>
 
           <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-10 max-w-3xl font-bold">
-            I build high-performance web platforms that drive revenue.
-            Full Stack Engineer (Next.js & MERN) + HubSpot Specialist.
-            Helping startups and businesses scale with fast, conversion-focused websites and custom CMS solutions.
+            I ship production-grade frontend work — Next.js/MERN product engineering at EmpKhet
+            and enterprise HubSpot CMS themes, migrations, and custom modules for B2B clients.
+            95–98+ Lighthouse scores. Remote-friendly · Noida, India.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

@@ -24,9 +24,7 @@ export default function ContactHero() {
           </h1>
 
           <p className="text-2xl text-muted-foreground max-w-2xl">
-            Ready to turn your digital presence into a high-performance 
-            revenue machine? Let&apos;s discuss your goals and build something 
-            that actually moves the needle.
+            Open to freelance and contract frontend work — Next.js apps, HubSpot CMS builds, migrations, and performance passes. Based in Noida · remote-friendly.
           </p>
         </motion.div>
       </div>

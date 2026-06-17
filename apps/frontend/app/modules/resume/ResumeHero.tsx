@@ -61,7 +61,7 @@ export default function ResumeHero({ profile }: ResumeHeroProps) {
              <Link href={ROUTES.CONTACT} className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-black text-base hover:bg-accent hover:text-foreground transition-all"
 >
               <Download className="mr-2 w-4 h-4" />
-              Download PDF Resume
+              Request Resume
             </Link>
           </div>
 

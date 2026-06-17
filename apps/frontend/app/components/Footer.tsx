@@ -11,7 +11,7 @@ const currentYear = new Date().getFullYear();
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
-  Phone: PhoneCall,
+  phone: PhoneCall,
   mail: Mail,
 };
 

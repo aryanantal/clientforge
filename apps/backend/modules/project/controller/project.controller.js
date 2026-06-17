@@ -2,7 +2,7 @@ import Project from "../../../models/Project.js";
 
 export const getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.find().sort({ createdAt: -1 });
+    const projects = await Project.find().sort({ order: 1, createdAt: -1 });
     res.status(200).json({
       success: true,
       data: projects,
@@ -95,6 +95,17 @@ export const createProject = async (req, res) => {
         projectData.tags = JSON.parse(projectData.tags);
       } catch (e) {
         projectData.tags = [projectData.tags];
+      }
+    }
+
+    if (typeof projectData.liveUrl === 'string') {
+      projectData.liveUrl = projectData.liveUrl.trim();
+    }
+
+    if (projectData.order !== undefined && projectData.order !== null && projectData.order !== '') {
+      projectData.order = Number(projectData.order);
+      if (Number.isNaN(projectData.order)) {
+        projectData.order = 0;
       }
     }
 
@@ -198,6 +209,17 @@ export const updateProject = async (req, res) => {
         updateData.tags = JSON.parse(updateData.tags);
       } catch (e) {
         updateData.tags = [updateData.tags];
+      }
+    }
+
+    if (typeof updateData.liveUrl === 'string') {
+      updateData.liveUrl = updateData.liveUrl.trim();
+    }
+
+    if (updateData.order !== undefined && updateData.order !== null && updateData.order !== '') {
+      updateData.order = Number(updateData.order);
+      if (Number.isNaN(updateData.order)) {
+        updateData.order = 0;
       }
     }
 

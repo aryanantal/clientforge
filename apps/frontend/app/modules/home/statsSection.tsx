@@ -26,20 +26,20 @@ export default function StatsSection() {
         } else {
           // Default fallback stats if none in database
           setStats([
-            { _id: "1", label: "Projects Completed", value: "10+", order: 0 },
-            { _id: "2", label: "Happy Clients", value: "5+", order: 1 },
-            { _id: "3", label: "PageSpeed Score", value: "96/100", order: 2 },
-            { _id: "4", label: "Years Experience", value: "3+", order: 3 },
+            { _id: "1", label: "Projects Completed", value: "20+", order: 1 },
+            { _id: "2", label: "HubSpot Sites Shipped", value: "10+", order: 2 },
+            { _id: "3", label: "PageSpeed Score", value: "98+", order: 3 },
+            { _id: "4", label: "Years Experience", value: "3+", order: 4 },
           ]);
         }
       } catch (error) {
         console.error("Error fetching stats:", error);
         // Default fallback stats on error
         setStats([
-          { _id: "1", label: "Projects Completed", value: "10+", order: 0 },
-          { _id: "2", label: "Happy Clients", value: "5+", order: 1 },
-          { _id: "3", label: "PageSpeed Score", value: "96/100", order: 2 },
-          { _id: "4", label: "Years Experience", value: "3+", order: 3 },
+          { _id: "1", label: "Projects Completed", value: "20+", order: 1 },
+          { _id: "2", label: "HubSpot Sites Shipped", value: "10+", order: 2 },
+          { _id: "3", label: "PageSpeed Score", value: "98+", order: 3 },
+          { _id: "4", label: "Years Experience", value: "3+", order: 4 },
         ]);
       } finally {
         setLoading(false);

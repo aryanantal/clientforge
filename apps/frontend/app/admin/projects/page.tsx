@@ -20,6 +20,8 @@ interface Project {
   images: string[];
   image?: string;
   tags: string[];
+  liveUrl?: string;
+  order?: number;
   createdAt: string;
 }
 
@@ -41,6 +43,8 @@ export default function ProjectsPage() {
     image: "",
     images: [] as string[],
     tags: [] as string[],
+    liveUrl: "",
+    order: 0,
   });
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<(string | null)[]>([]);
@@ -90,6 +94,8 @@ export default function ProjectsPage() {
       image: "",
       images: [],
       tags: [],
+      liveUrl: "",
+      order: 0,
     });
     setImageFiles([]);
     setImagePreviews([]);
@@ -133,6 +139,8 @@ export default function ProjectsPage() {
       image: projectImages[0] || "",
       images: projectImages,
       tags: project.tags,
+      liveUrl: project.liveUrl || "",
+      order: project.order ?? 0,
     });
     setImageFiles([]);
     setImagePreviews(absoluteImages);
@@ -209,6 +217,8 @@ export default function ProjectsPage() {
       Object.entries(formData).forEach(([key, value]) => {
         if (key === 'tags' || key === 'images') {
           formDataToSend.append(key, JSON.stringify(value));
+        } else if (key === 'order') {
+          formDataToSend.append(key, String(value));
         } else {
           formDataToSend.append(key, value as string);
         }
@@ -261,7 +271,11 @@ export default function ProjectsPage() {
       const data = await res.json();
 
       if (data.success) {
-        setProjects(data.data);
+        setProjects(
+          [...data.data].sort(
+            (a: Project, b: Project) => (a.order ?? 0) - (b.order ?? 0) || a.title.localeCompare(b.title),
+          ),
+        );
       }
     } catch (error) {
       console.error("Error fetching projects:", error);
@@ -361,7 +375,10 @@ export default function ProjectsPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-black mb-2">{project.title}</h3>
+                  <h3 className="text-2xl font-black mb-2">
+                    <span className="mr-2 text-sm font-bold text-primary">#{project.order ?? 0}</span>
+                    {project.title}
+                  </h3>
                   <p className="text-muted-foreground mb-2">
                     Category: {project.category}
                   </p>
@@ -374,6 +391,19 @@ export default function ProjectsPage() {
                   <p className="text-muted-foreground mb-3 text-sm">
                     Solution: {project.solution}
                   </p>
+                  {project.liveUrl ? (
+                    <p className="text-muted-foreground mb-3 text-sm">
+                      Live link:{" "}
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary underline underline-offset-2"
+                      >
+                        {project.liveUrl}
+                      </a>
+                    </p>
+                  ) : null}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -482,6 +512,18 @@ export default function ProjectsPage() {
                     required
                   />
                 </div>
+                <div>
+                  <label className="block text-sm font-bold uppercase mb-2">
+                    Display order <span className="text-muted-foreground font-normal normal-case">(lower = first)</span>
+                  </label>
+                  <input
+                    type="number"
+                    min={0}
+                    value={formData.order}
+                    onChange={(e) => setFormData({ ...formData, order: Number(e.target.value) || 0 })}
+                    className="w-full p-3 border-2 border-foreground focus:border-primary outline-none"
+                  />
+                </div>
               </div>
 
               <div>
@@ -504,6 +546,22 @@ export default function ProjectsPage() {
                   rows={3}
                   required
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold uppercase mb-2">
+                  Live project link <span className="text-muted-foreground font-normal normal-case">(optional)</span>
+                </label>
+                <input
+                  type="url"
+                  value={formData.liveUrl}
+                  onChange={(e) => setFormData({ ...formData, liveUrl: e.target.value.trim() })}
+                  placeholder="https://example.com"
+                  className="w-full p-3 border-2 border-foreground focus:border-primary outline-none"
+                />
+                <p className="text-xs text-muted-foreground mt-2">
+                  Public URL for the deployed site or live demo. Shown on the project detail page as &quot;View live project&quot;.
+                </p>
               </div>
 
               <div>

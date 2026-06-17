@@ -22,14 +22,17 @@ export default function AboutStory() {
             </div>
             <div className="lg:col-span-2 space-y-6 text-xl leading-relaxed text-muted-foreground">
               <p>
-                I started by architecting high-performance <span className="text-foreground font-medium">Next.js & MERN</span> applications. That journey led me to founding <span className="text-foreground font-medium text-primary">EmpKhet</span>, where I engineered a full-scale DTC ecosystem from the ground up—prioritizing speed, accessibility, and actual sales.
+                I started building responsive, SEO-focused marketing sites, then moved into{" "}
+                <span className="text-foreground font-medium">Next.js & MERN</span> product work — currently engineering the EmpKhet organic farming platform with auth, payments, and 98/100 PageSpeed targets.
               </p>
               <p>
-                <span className="text-foreground font-bold italic">Along the way, I discovered a gap:</span>{" "}
-                Most developers build what looks good on a portfolio. I build what looks good on a <span className="text-foreground font-bold">Balance Sheet</span>.
+                In parallel, I deliver{" "}
+                <span className="text-foreground font-medium">HubSpot CMS</span> themes, WordPress migrations, and custom modules for enterprise clients — from healthcare and logistics to manufacturing.
               </p>
               <p>
-                Today, I’m a <span className="text-foreground font-medium">HubSpot Developer & Technical Consultant</span> who speaks the language of marketing and ROI. I help businesses bridge the gap between complex backend logic and pixel-perfect, high-converting frontends.
+                Today I&apos;m a{" "}
+                <span className="text-foreground font-medium">Frontend Engineer & HubSpot CMS Developer</span>{" "}
+                who cares as much about Core Web Vitals and clean architecture as conversion-ready UI.
               </p>
             </div>
           </motion.div>
@@ -45,16 +48,15 @@ export default function AboutStory() {
               <h2 className="text-5xl md:text-6xl font-black mb-8">WHAT I DO DIFFERENT</h2>
               <div className="space-y-6 text-xl leading-relaxed">
                 <p>
-                  <span className="font-bold">I don&apos;t just ship features.</span> I ship outcomes.
-                  Every line of code is written with business goals in mind.
+                  <span className="font-bold">I don&apos;t just ship features.</span> I ship measurable quality —
+                  performance budgets, accessible UI, and maintainable code.
                 </p>
                 <p>
                   <span className="font-bold underline decoration-accent/50 underline-offset-4">I obsess over metrics.</span>{" "}
-                  98/100 Lighthouse scores, Core Web Vitals (LCP, CLS, INP), and conversion funnels—I audit and optimize the numbers that directly impact your bottom line.
+                  95–98+ Lighthouse scores, Core Web Vitals (LCP, CLS, INP), and clean HubSpot/Next.js architecture.
                 </p>
                 <p>
-                  <span className="font-bold">I speak business first, tech second.</span> Because
-                  stakeholders care about ROI, not your tech stack.
+                  <span className="font-bold">I bridge product and CMS work.</span> Same engineer behind EmpKhet&apos;s Next.js platform and enterprise HubSpot client sites.
                 </p>
               </div>
             </div>

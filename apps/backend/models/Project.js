@@ -12,6 +12,8 @@ const projectSchema = new mongoose.Schema({
   solution: { type: String, required: true },
   images: [{ type: String, required: true }],
   tags: [{ type: String }],
+  liveUrl: { type: String, default: "" },
+  order: { type: Number, default: 0 },
   createdAt: {
     type: Date,
     default: Date.now,

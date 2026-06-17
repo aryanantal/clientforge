@@ -27,7 +27,7 @@ export default function ServicesHeroSection() {
             <span className="text-primary">DO BEST</span>
           </h1>
           <p className="text-2xl md:text-3xl max-w-3xl leading-relaxed text-muted-foreground">
-            End-to-end solutions that drive real business results. No fluff, just revenue.
+            Next.js product engineering, HubSpot CMS builds, migrations, and performance optimization — aligned with how I work day to day.
           </p>
         </motion.div>
       </div>

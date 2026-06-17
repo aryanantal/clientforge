@@ -8,7 +8,7 @@ export async function GET(_request: Request) {
   try {
     await connectDB();
     
-    const projects = await Project.find().sort({ createdAt: -1 });
+    const projects = await Project.find().sort({ order: 1, createdAt: -1 });
     
     return NextResponse.json({
       success: true,
@@ -62,6 +62,13 @@ export async function POST(request: Request) {
     // Parse tags if it's a string
     if (typeof projectData.tags === 'string') {
       projectData.tags = JSON.parse(projectData.tags);
+    }
+
+    if (projectData.order !== undefined && projectData.order !== null && projectData.order !== '') {
+      projectData.order = Number(projectData.order);
+      if (Number.isNaN(projectData.order)) {
+        projectData.order = 0;
+      }
     }
 
     // Validate required fields

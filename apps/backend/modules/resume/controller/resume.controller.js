@@ -398,7 +398,7 @@ export const deleteCertification = async (req, res) => {
 // GET all projects for selection (admin only)
 export const getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.find({}).sort({ createdAt: -1 });
+    const projects = await Project.find({}).sort({ order: 1, createdAt: -1 });
     res.status(200).json({
       success: true,
       data: projects,

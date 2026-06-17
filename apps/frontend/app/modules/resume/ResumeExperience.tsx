@@ -20,47 +20,45 @@ interface ResumeExperienceProps {
   experience: Experience[];
 }
 
-// Default experience data
+// Fallback only when API returns no experience — matches resume PDF / MongoDB seed
 const defaultExperience: Experience[] = [
   {
-    period: "Jan 2023 - Present",
+    period: "May 2025 – Present",
     role: "Full Stack Engineer (Next.js & MERN)",
-    company: "EmpBeat Services Private Limited",
-    location: "Bangalore, India",
-    description:
-      "Leading end-to-end development of 18+ HRTech platforms focusing on scalability, user experience, and business outcomes.",
-    achievements: [
-      { description: "Architected and deployed scalable HRTech solutions serving 10,000+ users" },
-      { description: "Reduced application load time by 60% through optimization techniques" },
-      { description: "Implemented CI/CD pipelines reducing deployment time by 40%" },
-      { description: "Led cross-functional teams delivering projects 20% ahead of schedule" },
-    ],
-  },
-  {
-    period: "Jan 2021 - Dec 2023",
-    role: "HubSpot Developer & Technical Consultant",
-    company: "Freelance / Self-Employed",
+    company: "EmpKhet Services Pvt. Ltd.",
     location: "Remote",
     description:
-      "Delivered HubSpot solutions for global clients, focusing on scalability, marketing automation, and lead generation.",
+      "Own frontend and full-stack delivery for a production organic farming e-commerce platform — Next.js, Node.js, MongoDB, payments, and performance optimization.",
     achievements: [
-      { description: "Completed 50+ HubSpot CMS projects for clients across 5 countries" },
-      { description: "Achieved 95% client satisfaction with repeat business rate of 80%" },
-      { description: "Generated 200+ qualified leads for clients through optimized websites" },
-      { description: "Conducted HubSpot training for 30+ marketing teams" },
+      { description: "Achieved 98/100 Google PageSpeed through SSR, image optimization, and route-level code splitting." },
+      { description: "Built reusable UI architecture for auth, REST integrations, and secure checkout flows." },
+      { description: "Engineered MongoDB schemas for products and transactions with optimized query performance." },
     ],
   },
   {
-    period: "Jun 2020 - Dec 2021",
-    role: "Front-End Developer",
-    company: "Palnpine Technologies (IISP Software Pvt. Ltd.)",
-    location: "Bikaner, India",
+    period: "Jan 2024 – Present",
+    role: "HubSpot CMS Developer (Freelance)",
+    company: "Self-Employed",
+    location: "Remote",
     description:
-      "Created responsive, user-friendly websites using HTML, CSS, JavaScript, and React.",
+      "Deliver custom HubSpot themes, migrations, and advanced modules for SaaS, enterprise, and service brands.",
     achievements: [
-      { description: "Developed 20+ responsive websites with 98% cross-browser compatibility" },
-      { description: "Improved mobile performance scores from 60 to 95+ (Lighthouse)" },
-      { description: "Collaborated with design teams to implement pixel-perfect UI" },
+      { description: "Shipped 10+ HubSpot CMS websites including enterprise clients in healthcare, logistics, and manufacturing." },
+      { description: "Built pricing calculators, multi-step forms, and reusable module systems reducing campaign launch time by ~60%." },
+      { description: "Maintained 95–98+ Lighthouse scores through Core Web Vitals discipline on shipped HubSpot pages." },
+    ],
+  },
+  {
+    period: "May 2022 – Jan 2024",
+    role: "Front-End Developer",
+    company: "Palmspire Technologies (formerly iOSys Software)",
+    location: "Bijnor",
+    description:
+      "Developed responsive, SEO-optimized marketing websites and collaborated with design and marketing teams on conversion-focused UI.",
+    achievements: [
+      { description: "Delivered 30+ responsive websites with ~25% improvement in load times and mobile usability." },
+      { description: "Conducted technical SEO audits including schema markup and metadata optimization." },
+      { description: "Contributed to ~20% organic traffic growth through performance and SEO fixes." },
     ],
   },
 ];

@@ -35,20 +35,20 @@ return (
               {
                 icon: Rocket,
                 title: "HubSpot CMS Development",
-                description: "Custom themes and modules that turn your CMS into a lead machine.",
-                metrics: ["+250% Leads", "Seamless CRM", "Marketing Auto"],
+                description: "Custom themes, migrations, HubL modules, and enterprise HubSpot builds.",
+                metrics: ["10+ Sites", "HubL Modules", "CRM Ready"],
               },
               {
                 icon: Zap,
                 title: "Performance Optimization",
-                description: "Core Web Vitals. SEO. Speed that converts.",
-                metrics: ["-60% Load Time", "+40% Lower Bounce", "Google ❤️"],
+                description: "Core Web Vitals, Lighthouse tuning, and speed-focused front-end delivery.",
+                metrics: ["98+ Lighthouse", "CWV Audits", "SEO-Ready"],
               },
               {
                 icon: TrendingUp,
-                title: "Conversion Optimization",
-                description: "Data-driven UX improvements. A/B testing. Revenue growth.",
-                metrics: ["2.3x Conversions", "UX Research", "A/B Testing"],
+                title: "Full Stack Product Work",
+                description: "Next.js/MERN features — auth, APIs, dashboards, and production deployments.",
+                metrics: ["Next.js", "MongoDB", "Vercel"],
               },
             ].map((service, index) => {
               const Icon = service.icon;
