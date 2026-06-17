@@ -39,6 +39,7 @@ export const TAGS = [
   "Electron",
   "HubSpot",
   "WordPress",
+  "Squarespace",
   "Shopify",
   "Magento",
   "WooCommerce",

@@ -10,7 +10,8 @@
     "seed:modules": "node seeds/seedMarketplaceModules.js",
     "seed:clients": "node seeds/seedClientProjects.js",
     "seed:hubspot": "node seeds/seedHubspotPortfolio.js",
-    "seed:align": "node seeds/seedSiteAlignment.js"
+    "seed:align": "node seeds/seedSiteAlignment.js",
+    "seed:squarespace": "node seeds/seedSquarespaceProjects.js"
   },
   "keywords": [],
   "author": "",
