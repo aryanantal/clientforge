@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Project from "../../../models/Project.js";
 
 export const getAllProjects = async (req, res) => {
@@ -183,25 +184,7 @@ export const updateProject = async (req, res) => {
     }
 
     const { projectId } = req.params;
-    const updateData = req.body;
-
-    // Handle image uploads
-    if (req.files && req.files.length > 0) {
-      const uploadedImages = req.files.map((file) => file.path || file.secure_url || file.url);
-      updateData.images = uploadedImages;
-    }
-
-    // Keep existing images if not replaced
-    if (typeof updateData.images === 'string') {
-      try {
-        updateData.images = JSON.parse(updateData.images);
-      } catch (e) {
-        updateData.images = [updateData.images];
-      }
-    }
-    if (updateData.image && !updateData.images) {
-      updateData.images = [updateData.image];
-    }
+    const updateData = { ...req.body };
 
     // Parse tags if it's a string
     if (typeof updateData.tags === 'string') {
@@ -211,6 +194,31 @@ export const updateProject = async (req, res) => {
         updateData.tags = [updateData.tags];
       }
     }
+
+    // Parse existing images before merging uploads
+    let existingImages = [];
+    if (typeof updateData.images === 'string') {
+      try {
+        existingImages = JSON.parse(updateData.images);
+      } catch (e) {
+        existingImages = updateData.images ? [updateData.images] : [];
+      }
+    } else if (Array.isArray(updateData.images)) {
+      existingImages = updateData.images;
+    }
+    if (updateData.image && existingImages.length === 0) {
+      existingImages = [updateData.image];
+    }
+
+    // Handle image uploads — append to existing images
+    if (req.files && req.files.length > 0) {
+      const uploadedImages = req.files.map((file) => file.path || file.secure_url || file.url);
+      updateData.images = [...existingImages, ...uploadedImages];
+    } else {
+      updateData.images = existingImages;
+    }
+
+    delete updateData.image;
 
     if (typeof updateData.liveUrl === 'string') {
       updateData.liveUrl = updateData.liveUrl.trim();
@@ -322,7 +330,7 @@ export const updateProject = async (req, res) => {
     });
     res.status(500).json({
       success: false,
-      message: "Failed to update project"
+      message: error.message || "Failed to update project",
     });
   }
 };
