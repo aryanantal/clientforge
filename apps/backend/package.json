@@ -13,7 +13,9 @@
     "seed:align": "node seeds/seedSiteAlignment.js",
     "seed:squarespace": "node seeds/seedSquarespaceProjects.js",
     "seed:magazine-makers": "node seeds/seedMagazineMakersPortfolio.js",
-    "seed:order": "node seeds/seedProjectOrder.js"
+    "seed:order": "node seeds/seedProjectOrder.js",
+    "seed:aura": "node seeds/seedAuraTheme.js",
+    "seed:categories": "node seeds/seedProjectCategories.js"
   },
   "keywords": [],
   "author": "",

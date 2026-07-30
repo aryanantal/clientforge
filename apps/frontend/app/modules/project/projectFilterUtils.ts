@@ -1,19 +1,28 @@
 export type PlatformFilter =
   | "all"
-  | "hubspot"
-  | "module"
+  | "fullstack"
+  | "website"
   | "theme"
+  | "design"
   | "squarespace"
-  | "website";
+  | "module";
 
 export const PLATFORM_OPTIONS: { value: PlatformFilter; label: string }[] = [
   { value: "all", label: "All Platforms" },
-  { value: "hubspot", label: "HubSpot" },
-  { value: "module", label: "Modules" },
-  { value: "theme", label: "Themes" },
-  { value: "squarespace", label: "Squarespace" },
+  { value: "fullstack", label: "Full Stack" },
   { value: "website", label: "Websites" },
+  { value: "theme", label: "Themes" },
+  { value: "design", label: "Design" },
+  { value: "squarespace", label: "Squarespace" },
+  { value: "module", label: "Modules" },
 ];
+
+const DESIGN_SLUGS = new Set(["aura-theme-hubspot-marketplace"]);
+const THEME_SLUGS = new Set(["euphoria-theme-hubspot-marketplace"]);
+const FULLSTACK_SLUGS = new Set([
+  "empkhet-organic-farming-e-commerce-platform",
+  "iot-smart-farming-dashboard",
+]);
 
 interface FilterableProject {
   slug?: string;
@@ -39,11 +48,11 @@ export function getProjectPlatform(project: FilterableProject): PlatformFilter {
     return "module";
   }
 
-  if (
-    category.includes("theme") ||
-    slug.includes("theme") ||
-    project.title.toLowerCase().includes("theme")
-  ) {
+  if (DESIGN_SLUGS.has(slug) || category.includes("figma design")) {
+    return "design";
+  }
+
+  if (THEME_SLUGS.has(slug) || category.includes("marketplace theme")) {
     return "theme";
   }
 
@@ -51,8 +60,8 @@ export function getProjectPlatform(project: FilterableProject): PlatformFilter {
     return "squarespace";
   }
 
-  if (tags.includes("hubspot") || category.includes("hubspot")) {
-    return "hubspot";
+  if (FULLSTACK_SLUGS.has(slug) || category.includes("full stack")) {
+    return "fullstack";
   }
 
   return "website";
