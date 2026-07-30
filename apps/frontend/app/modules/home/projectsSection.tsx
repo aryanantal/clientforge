@@ -35,7 +35,7 @@ export default function ProjectSection() {
       const res = await fetch(`${API.BASE_URL}${API.PROJECTS}`);
       const data = await res.json();
       if (data.success) {
-        setProjects(data.data.slice(0, 5));
+        setProjects(data.data.slice(0, 6));
       }
     } catch (error) {
       console.error("Error fetching projects:", error);

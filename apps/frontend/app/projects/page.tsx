@@ -4,8 +4,13 @@ import { useEffect, useState, useMemo } from "react";
 import { API } from "@/../shared/constants/api";
 import ProjectHero from "../modules/project/ProjectHero";
 import ProjectFilters from "../modules/project/ProjectFilters";
-import ProjectGrid from "../modules/project/ProjectGrid";
+import ProjectGrid, { INITIAL_VISIBLE_COUNT } from "../modules/project/ProjectGrid";
 import ProjectCTA from "../modules/project/ProjectCTA";
+import {
+  collectTechnologyOptions,
+  filterProjects,
+  type PlatformFilter,
+} from "../modules/project/projectFilterUtils";
 
 interface Project {
   _id: string;
@@ -24,24 +29,25 @@ interface Project {
 }
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [platform, setPlatform] = useState<PlatformFilter>("all");
+  const [technology, setTechnology] = useState("all");
+  const [search, setSearch] = useState("");
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
 
-  const categories = useMemo(() => {
-    return Array.from(new Set(projects.map(p => p.category)));
-  }, [projects]);
-
-  const filters = ["All", ...categories];
+  const technologyOptions = useMemo(
+    () => collectTechnologyOptions(projects),
+    [projects],
+  );
 
   useEffect(() => {
     fetchProjects();
   }, []);
 
   useEffect(() => {
-    setVisibleCount(12);
-  }, [activeFilter]);
+    setVisibleCount(INITIAL_VISIBLE_COUNT);
+  }, [platform, technology, search]);
 
   const fetchProjects = async () => {
     try {
@@ -57,10 +63,10 @@ export default function Projects() {
     }
   };
 
-  const filteredProjects =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((project) => project.category === activeFilter);
+  const filteredProjects = useMemo(
+    () => filterProjects(projects, platform, technology, search),
+    [projects, platform, technology, search],
+  );
 
   if (loading) {
     return (
@@ -76,12 +82,16 @@ export default function Projects() {
     <div className="w-full bg-background">
       <ProjectHero />
       <ProjectFilters
-        activeFilter={activeFilter}
-        setActiveFilter={setActiveFilter}
-        filters={filters}
+        platform={platform}
+        setPlatform={setPlatform}
+        technology={technology}
+        setTechnology={setTechnology}
+        search={search}
+        setSearch={setSearch}
+        technologyOptions={technologyOptions}
       />
-      <ProjectGrid 
-        projects={filteredProjects} 
+      <ProjectGrid
+        projects={filteredProjects}
         visibleCount={visibleCount}
         setVisibleCount={setVisibleCount}
       />

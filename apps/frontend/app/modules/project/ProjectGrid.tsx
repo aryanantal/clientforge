@@ -25,12 +25,19 @@ interface ProjectGridProps {
   setVisibleCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
+export const INITIAL_VISIBLE_COUNT = 6;
+export const LOAD_STEP = 3;
+
 export default function ProjectGrid({ projects, visibleCount, setVisibleCount }: ProjectGridProps) {
+  const visibleProjects = projects.slice(0, visibleCount);
+  const canLoadMore = visibleCount < projects.length;
+  const canLoadLess = visibleCount > INITIAL_VISIBLE_COUNT;
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(0, visibleCount).map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.article
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -110,20 +117,28 @@ export default function ProjectGrid({ projects, visibleCount, setVisibleCount }:
           ))}
         </div>
 
-        {/* Load More/Less Buttons */}
-        {projects.length > 12 && (
+        {/* Load More / Load Less */}
+        {projects.length > INITIAL_VISIBLE_COUNT && (canLoadMore || canLoadLess) && (
           <div className="flex justify-center gap-6 mt-12">
-            {visibleCount < projects.length && (
+            {canLoadMore && (
               <button
-                onClick={() => setVisibleCount((prev: number) => Math.min(prev + 4, projects.length))}
+                onClick={() =>
+                  setVisibleCount((prev) =>
+                    Math.min(prev + LOAD_STEP, projects.length),
+                  )
+                }
                 className="px-8 py-4 bg-foreground text-background font-black text-lg hover:bg-primary transition-all"
               >
                 LOAD MORE
               </button>
             )}
-            {visibleCount > 12 && (
+            {canLoadLess && (
               <button
-                onClick={() => setVisibleCount(12)}
+                onClick={() =>
+                  setVisibleCount((prev) =>
+                    Math.max(prev - LOAD_STEP, INITIAL_VISIBLE_COUNT),
+                  )
+                }
                 className="px-8 py-4 border-4 border-foreground text-foreground font-black text-lg hover:bg-foreground hover:text-background transition-all"
               >
                 LOAD LESS
@@ -135,7 +150,7 @@ export default function ProjectGrid({ projects, visibleCount, setVisibleCount }:
         {projects.length === 0 && (
           <div className="text-center py-32">
             <div className="text-8xl font-black text-muted-foreground mb-6">0</div>
-            <p className="text-2xl font-bold text-foreground">No projects in this category yet.</p>
+            <p className="text-2xl font-bold text-foreground">No projects match your filters.</p>
           </div>
         )}
       </div>
