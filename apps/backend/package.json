@@ -11,7 +11,8 @@
     "seed:clients": "node seeds/seedClientProjects.js",
     "seed:hubspot": "node seeds/seedHubspotPortfolio.js",
     "seed:align": "node seeds/seedSiteAlignment.js",
-    "seed:squarespace": "node seeds/seedSquarespaceProjects.js"
+    "seed:squarespace": "node seeds/seedSquarespaceProjects.js",
+    "seed:magazine-makers": "node seeds/seedMagazineMakersPortfolio.js"
   },
   "keywords": [],
   "author": "",
