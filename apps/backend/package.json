@@ -12,7 +12,8 @@
     "seed:hubspot": "node seeds/seedHubspotPortfolio.js",
     "seed:align": "node seeds/seedSiteAlignment.js",
     "seed:squarespace": "node seeds/seedSquarespaceProjects.js",
-    "seed:magazine-makers": "node seeds/seedMagazineMakersPortfolio.js"
+    "seed:magazine-makers": "node seeds/seedMagazineMakersPortfolio.js",
+    "seed:order": "node seeds/seedProjectOrder.js"
   },
   "keywords": [],
   "author": "",

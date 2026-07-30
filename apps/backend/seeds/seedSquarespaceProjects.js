@@ -13,7 +13,7 @@ const PROJECTS = [
     title: "Globalsafe Perkasa Indonesia — Squarespace Website",
     category: "Squarespace · Web Development",
     liveUrl: "https://www.globalsafeperkasa.com/",
-    order: 16,
+    order: 28,
     before:
       "Indonesian fire & safety manufacturer needed a credible web presence for foam concentrates, SOLAS rations, and emergency kits.",
     after:

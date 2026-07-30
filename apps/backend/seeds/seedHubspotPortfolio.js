@@ -4,41 +4,9 @@ import { chromium } from "playwright";
 import cloudinary from "../config/cloudinary.js";
 import Project from "../models/Project.js";
 import { connectDB } from "../config/db.js";
+import { ORDER_BY_SLUG } from "./projectOrder.js";
 
 dotenv.config();
-
-/** Lower number = appears first on portfolio. Edit in admin anytime. */
-const ORDER_BY_SLUG = {
-  "empkhet-organic-farming-e-commerce-platform": 1,
-  "prognos-health-hubspot-website": 2,
-  "odw-logistics-maka-power-theme": 3,
-  "north-coast-container-maka-power-theme": 4,
-  "contegix-wordpress-to-hubspot-migration": 5,
-  "rj-lee-group-enterprise-migration": 6,
-  "cameron-mfg-hubspot-theme-migration": 7,
-  "orderease-hubspot-revamp": 8,
-  "rise-and-shine-leading-hubspot-website": 9,
-  "otb-packaging-hubspot-theme": 10,
-  "unison-alberta-hubspot-theme-migration": 11,
-  "sdapp-hubspot-website-landing-pages": 12,
-  "eco-multistep-calculator": 13,
-  "iot-smart-farming-dashboard": 14,
-  "startable-blog-hubspot": 15,
-  "globalsafe-perkasa-squarespace-website": 16,
-  "agam-fire-safety-website": 17,
-  "euphoria-theme-hubspot-marketplace": 18,
-  "advance-video-popup-hubspot-module": 20,
-  "sticky-sidebar-accordion-hubspot-module": 21,
-  "typewriter-hubspot-marketplace-module": 22,
-  "pricing-table-advanced-hubspot-module": 23,
-  "premium-pricing-table-hubspot-module": 24,
-  "comparison-pricing-table-hubspot-module": 25,
-  "before-after-slider-hubspot-module": 26,
-  "premium-before-after-slider-hubspot-module": 27,
-  "premium-testimonial-media-hubspot-module": 28,
-  "aura-ui-concept": 30,
-  "personal-portfolio-website-conversion-focused": 31,
-};
 
 const PROJECTS = [
   {
