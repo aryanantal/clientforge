@@ -24,10 +24,16 @@ const HUBSPOT_WEBSITE_SLUGS = [
 
 const CATEGORY_PATCHES = [
   {
-    slug: "aura-theme-hubspot-marketplace",
+    slug: "aura-figma-design",
     title: "Aura — Figma Design",
     category: "Figma Design · UI/UX",
-    tags: ["Figma", "UI", "Design", "HubSpot CMS", "HubL", "Adobe XD"],
+    tags: ["Figma", "UI", "Design", "HubSpot CMS", "Adobe XD"],
+  },
+  {
+    slug: "aura-theme-hubspot-marketplace",
+    title: "Aura — HubSpot Marketplace Theme",
+    category: "HubSpot CMS · Marketplace Theme",
+    tags: ["HubSpot", "HubL", "UI", "Design", "HubSpot CMS", "JavaScript"],
   },
   {
     slug: "euphoria-theme-hubspot-marketplace",

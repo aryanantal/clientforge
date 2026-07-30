@@ -17,8 +17,11 @@ export const PLATFORM_OPTIONS: { value: PlatformFilter; label: string }[] = [
   { value: "module", label: "Modules" },
 ];
 
-const DESIGN_SLUGS = new Set(["aura-theme-hubspot-marketplace"]);
-const THEME_SLUGS = new Set(["euphoria-theme-hubspot-marketplace"]);
+const DESIGN_SLUGS = new Set(["aura-figma-design"]);
+const THEME_SLUGS = new Set([
+  "euphoria-theme-hubspot-marketplace",
+  "aura-theme-hubspot-marketplace",
+]);
 const FULLSTACK_SLUGS = new Set([
   "empkhet-organic-farming-e-commerce-platform",
   "iot-smart-farming-dashboard",
