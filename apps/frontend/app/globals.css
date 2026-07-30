@@ -215,5 +215,29 @@ display: none;
 scroll-behavior: smooth;
 -webkit-overflow-scrolling: touch;
 }
+
+/* Project filter controls */
+.project-filter-trigger:focus-visible,
+.project-filter-search:focus-visible {
+outline: 2px solid var(--primary);
+outline-offset: 2px;
+}
+
+.project-filter-menu {
+scrollbar-width: thin;
+scrollbar-color: var(--primary) var(--muted);
+}
+
+.project-filter-menu::-webkit-scrollbar {
+width: 8px;
+}
+
+.project-filter-menu::-webkit-scrollbar-track {
+background: var(--muted);
+}
+
+.project-filter-menu::-webkit-scrollbar-thumb {
+background: var(--primary);
+}
 }
 
