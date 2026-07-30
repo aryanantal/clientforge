@@ -33,7 +33,7 @@ const CATEGORY_PATCHES = [
     slug: "aura-theme-hubspot-marketplace",
     title: "Aura — HubSpot Marketplace Theme",
     category: "HubSpot CMS · Marketplace Theme",
-    tags: ["HubSpot", "HubL", "UI", "Design", "HubSpot CMS", "JavaScript"],
+    tags: ["HubSpot", "HubL", "UI", "HubSpot CMS", "JavaScript"],
   },
   {
     slug: "euphoria-theme-hubspot-marketplace",

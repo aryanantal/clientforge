@@ -43,6 +43,11 @@ export function getProjectPlatform(project: FilterableProject): PlatformFilter {
   const slug = (project.slug ?? "").toLowerCase();
   const tags = project.tags.map((tag) => tag.toLowerCase());
 
+  // Explicit slug overrides first — prevents theme/design overlap
+  if (THEME_SLUGS.has(slug)) return "theme";
+  if (DESIGN_SLUGS.has(slug)) return "design";
+  if (FULLSTACK_SLUGS.has(slug)) return "fullstack";
+
   if (
     category.includes("marketplace module") ||
     slug.includes("hubspot-module") ||
@@ -51,19 +56,19 @@ export function getProjectPlatform(project: FilterableProject): PlatformFilter {
     return "module";
   }
 
-  if (DESIGN_SLUGS.has(slug) || category.includes("figma design")) {
-    return "design";
+  if (category.includes("marketplace theme")) {
+    return "theme";
   }
 
-  if (THEME_SLUGS.has(slug) || category.includes("marketplace theme")) {
-    return "theme";
+  if (category.includes("figma design")) {
+    return "design";
   }
 
   if (tags.includes("squarespace") || category.includes("squarespace")) {
     return "squarespace";
   }
 
-  if (FULLSTACK_SLUGS.has(slug) || category.includes("full stack")) {
+  if (category.includes("full stack")) {
     return "fullstack";
   }
 

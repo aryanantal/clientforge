@@ -28,7 +28,7 @@ const PROJECTS = [
       "Before building the Aura HubSpot theme, the project needed a cohesive Figma design system — page structures, spacing, typography, and reusable UI components that could translate cleanly into HubSpot CMS modules.",
     solution:
       "Designed Aura in Figma as the source-of-truth UI kit for the theme: hero sections, service blocks, portfolio grids, and conversion patterns. The Figma file guided HubSpot theme development and marketplace presentation.",
-    tags: ["Figma", "UI", "Design", "HubSpot CMS", "Adobe XD", "Design"],
+    tags: ["Figma", "UI", "HubSpot CMS", "Adobe XD"],
     previewUrl: FIGMA_URL,
     screenshotFolder: "portfolio/figma-designs",
   },
@@ -47,7 +47,7 @@ const PROJECTS = [
       "Marketing and agency teams on HubSpot CMS needed a premium theme with contemporary design, flexible page sections, and fast time-to-launch — backed by a professional design foundation.",
     solution:
       "Developed and published Aura on the HubSpot Marketplace, translating the Figma design into a production HubSpot CMS theme with reusable modules, responsive layouts, and marketer-friendly field groups for landing pages and lead capture.",
-    tags: ["HubSpot", "HubL", "UI", "Design", "HubSpot CMS", "JavaScript"],
+    tags: ["HubSpot", "HubL", "UI", "HubSpot CMS", "JavaScript"],
     previewUrl: MARKETPLACE_URL,
     screenshotFolder: "portfolio/marketplace-themes",
   },
